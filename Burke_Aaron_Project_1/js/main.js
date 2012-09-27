@@ -560,7 +560,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	};
 
 	// Variable defaults
-	var jobTypes = ["--Job Types--", "Banner", "Decal", "Sign", "Custom"];
+	var jobTypes = ["--Job Types--", "Banner", "Decal", "Sign", "Display", "Poster", "Custom"];
 	var jobNumCount;
 	var rushValue;
 	var errorMsg = ge("errors");
