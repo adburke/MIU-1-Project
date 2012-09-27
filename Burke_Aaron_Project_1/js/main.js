@@ -5,7 +5,7 @@
 window.addEventListener("DOMContentLoaded", function(){
 
 	// getElementById function shortcut
-	function $(selector){
+	function ge(selector){
 		var element = document.getElementById(selector);
 		return element;
 	};
@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	// Create select field element and populate with options
 	function formLists(selector, array, id){
 		var formtTag = document.getElementsByTagName("form"),
-			selectLi = $(selector),
+			selectLi = ge(selector),
 			makeSelect = document.createElement("select");
 			makeSelect.setAttribute("id", id);
 		for (var i=0, j=array.length; i<j; i++){
@@ -51,7 +51,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		// Check to see if we are editing an existing item or it is a new item.
 		if (!key || key === undefined){
 			var id = jobNumCount;
-			var num = Number($("jobnum").value)+1;
+			var num = Number(ge("jobnum").value)+1;
 			localStorage["jobNumber"] = num.toString();
 			console.log("no key");
 		} else {
@@ -62,22 +62,22 @@ window.addEventListener("DOMContentLoaded", function(){
 		getSelectedRadio();
 		// Get all of the form data and create an object out of it
 		var jobFormData				= {};
-			jobFormData.jobNum		= ["Job Num", $("jobnum").value];
-			jobFormData.company		= ["Company", $("company").value];
-			jobFormData.address		= ["Address", $("address").value];
-			jobFormData.city		= ["City", $("city").value];
-			jobFormData.state		= ["State", $("state").value];
-			jobFormData.zipcode		= ["Zipcode", $("zipcode").value];
-			jobFormData.phone		= ["Phone", $("phone").value];
-			jobFormData.email		= ["Email", $("email").value];
-			jobFormData.oDate		= ["Order Date", $("orderdate").value];
-			jobFormData.needDate	= ["Need Date", $("needbydate").value];
+			jobFormData.jobNum		= ["Job Num", ge("jobnum").value];
+			jobFormData.company		= ["Company", ge("company").value];
+			jobFormData.address		= ["Address", ge("address").value];
+			jobFormData.city		= ["City", ge("city").value];
+			jobFormData.state		= ["State", ge("state").value];
+			jobFormData.zipcode		= ["Zipcode", ge("zipcode").value];
+			jobFormData.phone		= ["Phone", ge("phone").value];
+			jobFormData.email		= ["Email", ge("email").value];
+			jobFormData.oDate		= ["Order Date", ge("orderdate").value];
+			jobFormData.needDate	= ["Need Date", ge("needbydate").value];
 			jobFormData.rushOrder	= ["Rush Order", rushValue];
-			jobFormData.jobType		= ["Job Type", $("jobTypeList").value];
-			jobFormData.customInfo	= ["Custom Info", $("custom").value];
-			jobFormData.quantity	= ["Quantity", $("qty").value];
-			jobFormData.prodHours	= ["Production Hours", $("production").value];
-			jobFormData.designEff	= ["Design Effort", $("design").value];
+			jobFormData.jobType		= ["Job Type", ge("jobTypeList").value];
+			jobFormData.customInfo	= ["Custom Info", ge("custom").value];
+			jobFormData.quantity	= ["Quantity", ge("qty").value];
+			jobFormData.prodHours	= ["Production Hours", ge("production").value];
+			jobFormData.designEff	= ["Design Effort", ge("design").value];
 
 		localStorage.setItem(id, JSON.stringify(jobFormData));
 		if (!key || key === undefined){
@@ -109,7 +109,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var makeList = document.createElement("ul");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		$("items").style.display = "block";
+		ge("items").style.display = "block";
 		for(var i = 0, j = localStorage.length; i < j; i++){
 			// Modified section to just return search results
 			if(searchArray[0] && Number(localStorage.key(i))/1 === Number(localStorage.key(i))){
@@ -208,16 +208,16 @@ window.addEventListener("DOMContentLoaded", function(){
 		toggleControl("showForm");
 
 		// Populate the form fields with current localstorage values
-		$("jobnum").value = jobFormData.jobNum[1];
-		$("company").value = jobFormData.company[1];
-		$("address").value = jobFormData.address[1];
-		$("city").value = jobFormData.city[1];
-		$("state").value = jobFormData.state[1];
-		$("zipcode").value = jobFormData.zipcode[1];
-		$("phone").value = jobFormData.phone[1];
-		$("email").value = jobFormData.email[1];
-		$("orderdate").value = jobFormData.oDate[1];
-		$("needbydate").value = jobFormData.needDate[1];
+		ge("jobnum").value = jobFormData.jobNum[1];
+		ge("company").value = jobFormData.company[1];
+		ge("address").value = jobFormData.address[1];
+		ge("city").value = jobFormData.city[1];
+		ge("state").value = jobFormData.state[1];
+		ge("zipcode").value = jobFormData.zipcode[1];
+		ge("phone").value = jobFormData.phone[1];
+		ge("email").value = jobFormData.email[1];
+		ge("orderdate").value = jobFormData.oDate[1];
+		ge("needbydate").value = jobFormData.needDate[1];
 		var radios = document.forms[1].rush;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value === "Yes" && jobFormData.rushOrder[1] === "Yes" ){
@@ -226,17 +226,17 @@ window.addEventListener("DOMContentLoaded", function(){
 				radios[i].setAttribute("checked", "checked");
 			};
 		};
-		$("jobTypeList").value = jobFormData.jobType[1];
-		$("custom").value = jobFormData.customInfo[1];
-		$("qty").value = jobFormData.quantity[1];
-		$("production").value = jobFormData.prodHours[1];
-		$("design").value = jobFormData.designEff[1];
+		ge("jobTypeList").value = jobFormData.jobType[1];
+		ge("custom").value = jobFormData.customInfo[1];
+		ge("qty").value = jobFormData.quantity[1];
+		ge("production").value = jobFormData.prodHours[1];
+		ge("design").value = jobFormData.designEff[1];
 
 		// Remove initial listener from submit button
 		save.removeEventListener("click", validation);
 		// Change submit button to edit button
-		$("submit").value = "Edit Job";
-		var editSubmit = $("submit");
+		ge("submit").value = "Edit Job";
+		var editSubmit = ge("submit");
 		// Passes the key value along to the editSubmit event
 		// This allows us to save over the data we are editing instead of creating a new object
 		editSubmit.key = this.key;
@@ -275,42 +275,42 @@ window.addEventListener("DOMContentLoaded", function(){
 	function toggleControl(state){
 		switch(state){
 			case "showData":
-				$("jobForm").style.display = "none";
-				$("clearData").style.display = "inline";
-				$("displayData").style.display = "none";
-				$("newJob").style.display = "inline";
-				$("searchDisplay").style.display = "inline";
-				$("search").style.display = "none";
+				ge("jobForm").style.display = "none";
+				ge("clearData").style.display = "inline";
+				ge("displayData").style.display = "none";
+				ge("newJob").style.display = "inline";
+				ge("searchDisplay").style.display = "inline";
+				ge("search").style.display = "none";
 				break;
 
 			case "showForm":
-				$("jobForm").style.display = "block";
-				$("search").style.display = "none";
-				$("clearData").style.display = "inline";
-				$("displayData").style.display = "inline";
-				$("newJob").style.display = "none";
-				$("items").style.display = "none";
+				ge("jobForm").style.display = "block";
+				ge("search").style.display = "none";
+				ge("clearData").style.display = "inline";
+				ge("displayData").style.display = "inline";
+				ge("newJob").style.display = "none";
+				ge("items").style.display = "none";
 				break;
 
 			case "showSearch":
-				$("jobForm").style.display = "none";
-				$("search").style.display = "block";
-				$("clearData").style.display = "inline";
-				$("displayData").style.display = "inline";
-				$("newJob").style.display = "inline";
-				$("searchDisplay").style.display = "none";
-				if($("items")){
-					$("items").style.display = "none";
+				ge("jobForm").style.display = "none";
+				ge("search").style.display = "block";
+				ge("clearData").style.display = "inline";
+				ge("displayData").style.display = "inline";
+				ge("newJob").style.display = "inline";
+				ge("searchDisplay").style.display = "none";
+				if(ge("items")){
+					ge("items").style.display = "none";
 				};
 				break;
 
 			case "showSearchData":
-				$("jobForm").style.display = "none";
-				$("search").style.display = "block";
-				$("clearData").style.display = "inline";
-				$("displayData").style.display = "inline";
-				$("newJob").style.display = "inline";
-				$("searchDisplay").style.display = "none";
+				ge("jobForm").style.display = "none";
+				ge("search").style.display = "block";
+				ge("clearData").style.display = "inline";
+				ge("displayData").style.display = "inline";
+				ge("newJob").style.display = "inline";
+				ge("searchDisplay").style.display = "none";
 				break;
 			
 			default:
@@ -319,36 +319,36 @@ window.addEventListener("DOMContentLoaded", function(){
 	};
 	// Reset input box outlines from red to black
 	function inputBoxReset(){
-		$("company").style.border = "1px solid black";
-		$("address").style.border = "1px solid black";
-		$("city").style.border = "1px solid black";
-		$("state").style.border = "1px solid black";
-		$("zipcode").style.border = "1px solid black";
-		$("phone").style.border = "1px solid black";
-		$("email").style.border = "1px solid black";
-		$("orderdate").style.border = "1px solid black";
-		$("needbydate").style.border = "1px solid black";
-		$("jobTypeList").style.border = "1px solid black";
-		$("custom").style.border = "1px solid black";
-		$("qty").style.border = "1px solid black";
-		$("production").style.border = "1px solid black";
+		ge("company").style.border = "1px solid black";
+		ge("address").style.border = "1px solid black";
+		ge("city").style.border = "1px solid black";
+		ge("state").style.border = "1px solid black";
+		ge("zipcode").style.border = "1px solid black";
+		ge("phone").style.border = "1px solid black";
+		ge("email").style.border = "1px solid black";
+		ge("orderdate").style.border = "1px solid black";
+		ge("needbydate").style.border = "1px solid black";
+		ge("jobTypeList").style.border = "1px solid black";
+		ge("custom").style.border = "1px solid black";
+		ge("qty").style.border = "1px solid black";
+		ge("production").style.border = "1px solid black";
 
 	};
 	// Validate that all required form fields at least have a value *no error checking yet*	
 	function validation(e){
-		var getCompany = $("company");
-		var getAddress = $("address");
-		var getCity = $("city");
-		var getState = $("state");
-		var getZip = $("zipcode");
-		var getPhone = $("phone");
-		var getEmail = $("email");
-		var getOrderDate = $("orderdate");
-		var getNeedByDate = $("needbydate");
-		var getJobTypeList = $("jobTypeList");
-		var getCustom = $("custom");
-		var getQty = $("qty");
-		var getProduction = $("production");
+		var getCompany = ge("company");
+		var getAddress = ge("address");
+		var getCity = ge("city");
+		var getState = ge("state");
+		var getZip = ge("zipcode");
+		var getPhone = ge("phone");
+		var getEmail = ge("email");
+		var getOrderDate = ge("orderdate");
+		var getNeedByDate = ge("needbydate");
+		var getJobTypeList = ge("jobTypeList");
+		var getCustom = ge("custom");
+		var getQty = ge("qty");
+		var getProduction = ge("production");
 
 		// Reset Error Messages
 		errorMsg.innerHTML = "";
@@ -398,14 +398,14 @@ window.addEventListener("DOMContentLoaded", function(){
 			messageAry.push(phoneError);
 		};
 		// Email validation
-		var reEmail = /^\w+@[\w.\-]+\.[A-Za-z]{2,3}$/;
+		var reEmail = /^\w+@[\w.\-]+\.[A-Za-z]{2,3}ge/;
 		if(!(reEmail.test(getEmail.value))){
 			var emailError = "Please enter a valid email address.";
 			getEmail.style.border = "1px solid red";
 			messageAry.push(emailError);
 		};
 		// Order date validation
-		var reDate = /^(19|20)\d\d([\-.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])$/;
+		var reDate = /^(19|20)\d\d([\-.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])ge/;
 		var orderDateAry = (getOrderDate.value).split("-");
 		if(!(reDate.test(getOrderDate.value))){
 			var orderDateError = "Please enter a valid order date yyyy-mm-dd";
@@ -500,8 +500,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		};
 		toggleControl("showSearch");
 
-		var getJobTypeSearch = $("jobTypeSearch").value;
-		var searchTerm = $("searchTerm").value;
+		var getJobTypeSearch = ge("jobTypeSearch").value;
+		var searchTerm = ge("searchTerm").value;
 		var searchArray = [];
 
 		if(getJobTypeSearch != "--Job Types--" && searchTerm === ""){
@@ -563,22 +563,22 @@ window.addEventListener("DOMContentLoaded", function(){
 	var jobTypes = ["--Job Types--", "Banner", "Decal", "Sign", "Custom"];
 	var jobNumCount;
 	var rushValue;
-	var errorMsg = $("errors");
+	var errorMsg = ge("errors");
 	// Calls the function to create the select box and populates with job types
 	formLists("jobTypes", jobTypes, "jobTypeList");
 	formLists("jobTypesSearch", jobTypes, "jobTypeSearch");
 	// Function called to set or check Job # read only field value
 	jobCount();
-	// Set Link $ Submit Click Events
-	var displayData = $("displayData");
+	// Set Link ge Submit Click Events
+	var displayData = ge("displayData");
 	displayData.addEventListener("click", getData);
-	var clearStorage = $("clearData");
+	var clearStorage = ge("clearData");
 	clearStorage.addEventListener("click", clearData);
-	var save = $("submit");
+	var save = ge("submit");
 	save.addEventListener("click", validation);
-	var searchDisplay = $("searchDisplay");
+	var searchDisplay = ge("searchDisplay");
 	searchDisplay.addEventListener("click", toggleSearch);
-	var searchTest = $("searchBtn");
+	var searchTest = ge("searchBtn");
 	searchTest.addEventListener("click", search);
 
 
