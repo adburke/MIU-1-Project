@@ -93,7 +93,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		if (localStorage.length === 1 && localStorage.getItem("jobNumber")){
 			alert("Local Storage does not contain any jobs. Adding job test data.");
 			autoFillData();
-			return;
 		};
 		if(document.getElementById("items")){
 			var jobListDiv = document.getElementById("items");
