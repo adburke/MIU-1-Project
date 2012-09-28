@@ -31,17 +31,9 @@ header{
 	background-color: #cccccc;
 }
 #cta {
-	margin:0;
+	margin:0 auto;
+	width:80%;
 	padding: 0;
-	background-color: #e6e6e6;
-}
-#cta p{
-	padding: 20px 0 20px 40px;
-	margin:0;
-}
-#cta a{
-	padding-left:100px;
-	margin:0;
 }
 form {
 	width:100%;
