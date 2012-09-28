@@ -3,29 +3,64 @@
 		Aaron Burke 
 -->
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8" />
-		<meta keywords="Jobs, Orders" />
-		<meta description="This application is used to create job order forms." />
-		<meta name="robots" content="index, follow" />
-		<meta name="viewport" content="user-scalable=no, width=device-width" />
-		<meta name="HandheldFriendly" content="True" />
-		<meta name="MobileOptimized" content="320" />
-		<title>Job Order Form</title>
-		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz'/>
-		<link rel="stylesheet" href="css/styles.css">
-	</head>
+<!doctype html>  
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Job Manager</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	
+
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
 	<body>
-		<div id="wrapper">
-			<header>
-				<h1>Create Job Orders</h1>
-			</header>
+		<div data-role="page">
+
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>JOB MANAGER</h1>
+				<a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+			</div><!-- /header -->
 			<div id="cta">
-				<p>This application is used to create job order forms.</p>
-				<a href="additem.html">Job Order Form</a>
+
 			</div>
-		</div>
+			<div data-role="content" data-theme="c">	
+				<ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="b" data-filter="true">
+					<li data-role="list-divider">Browse By:</li>
+					<li><a href="#"><h3>Banner</h3></a></li>
+					<li><a href="#"><h3>Decal</h3></a></li>
+					<li><a href="#"><h3>Sign</h3></a></li>
+					<li><a href="#"><h3>Display</h3></a></li>
+					<li><a href="#"><h3>Poster</h3></a></li>
+				</ul>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-theme="a">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li><a href="#" data-icon="grid">Display Data</a></li>
+						<li><a href="#" data-icon="delete">Clear Data</a></li>
+						<li><a href="#" data-icon="plus"">New Job</a></li>
+					</ul>
+				</div>
+			</div><!-- /footer -->
+		</div><!-- /page -->
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 	</body>
 </html>
+
