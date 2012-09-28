@@ -360,4 +360,3 @@ var json = {
 		"designEff":["Design Effort","2"]
 	}
 }
-}
