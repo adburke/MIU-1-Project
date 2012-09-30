@@ -22,14 +22,13 @@
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
-
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 	<script src="js/libs/modernizr.custom.min.js"></script>
 
 </head>
 	<body>
-		<div data-role="page">
+		<div id="home" data-role="page">
 
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<h1>JOB MANAGER</h1>
@@ -40,16 +39,12 @@
 			<div data-role="content" data-theme="d">	
 				<ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="b" data-filter="true">
 					<li data-role="list-divider">Browse By Job Type:</li>
-					<li id="test"><h3>Banner</h3>
-						<ul>test
-						<li>testing</li>
-					</ul>
-					</li>
-					<li><h3>Decal</h3></li>
-					<li><h3>Sign</h3></li>
-					<li><h3>Display</h3></li>
-					<li><h3>Poster</h3></li>
-					<li><h3>Custom</h3></li>
+					<li><a href="#category-items?category=Banner"><h3>Banner</h3></a></li>
+					<li><a href="#category-items?category=Decal"><h3>Decal</h3></a></li>
+					<li><a href="#category-items?category=Sign"><h3>Sign</h3></a></li>
+					<li><a href="#category-items?category=Display"><h3>Display</h3></a></li>
+					<li><a href="#category-items?category=Poster"><h3>Poster</h3></a></li>
+					<li><a href="#category-items?category=Custom"><h3>Custom</h3></a></li>
 				</ul>
 			</div><!-- /content -->
 
@@ -62,10 +57,26 @@
 					</ul>
 				</div>
 			</div><!-- /footer -->
-		</div><!-- /page -->
+		</div><!-- home page -->
+
+		<div id="category-items" data-role="page">
+  			<div data-role="header"><h1></h1></div>
+  			<div data-role="content"></div>
+  			<div data-role="footer" data-theme="a">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li><a href="#" data-icon="grid">Display Data</a></li>
+						<li><a href="#" data-icon="delete">Clear Data</a></li>
+						<li><a href="#" data-icon="plus">New Job</a></li>
+					</ul>
+				</div>
+			</div><!-- /footer -->
+		</div><!-- category-items page -->
+
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 		<script src="js/json.js"></script>
+		<script src="js/jqmtest.js"></script>
 		
 	</body>
 </html>
