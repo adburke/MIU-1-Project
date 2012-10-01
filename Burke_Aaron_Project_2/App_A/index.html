@@ -28,7 +28,7 @@
 
 </head>
 	<body>
-		<div id="home" data-role="page">
+		<div id="home" data-role="page" data-theme="d">
 
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<h1>JOB MANAGER</h1>
@@ -36,8 +36,11 @@
 			<div data-role="content" data-theme="d" id="cta">
 				<a href="additem.html"><img src="images/cta.png" alt="cta"></a>
 			</div>
-			<div data-role="content" data-theme="d">	
-				<ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="b" data-filter="true">
+			<div data-role="content" data-theme="d" id="search">
+			  <input type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+			</div>
+			<div data-role="content" data-theme="d">
+				<ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="b">
 					<li data-role="list-divider">Browse By Job Type:</li>
 					<li><a href="#category-items?category=Banner"><h3>Banner</h3></a></li>
 					<li><a href="#category-items?category=Decal"><h3>Decal</h3></a></li>
