@@ -24,14 +24,19 @@ function showCategory( urlObj, options ) {
 			// Get the content area element for the page.
 			$content = $page.children( ":jqmData(role=content)" ),
 
-			collapseSet = "<div id='jobs' data-role='collapsible-set'>",
+			collapseSet = "<div id='jobs' data-role='collapsible-set' data-content-theme='b'>",
 			markup = "";
 		for(n in json){
 			if ( categoryName === json[n].jobType[1] ) {
-				markup += "<div data-role='collapsible'><h3>" + "#: " + json[n].jobNum[1] + "</h3></div>";
+				var object = json[n];
+				markup += "<div data-role='collapsible' data-inset='true'><h3>" + "#: " + json[n].jobNum[1] + "</h3><ul data-role='listview' data-inset='true'>";
+				for (x in object){
+					markup += "<li>" + object[x][0] + ": " +object[x][1] + "</li>";
+				}
+				markup += "</div>"
 			}
 		}
-		markup +="</div>";
+		markup +="</div></ul>";
 		console.log(collapseSet + markup);
 		// Find the h1 element in our header and inject the name of
 		// the category into it.
@@ -48,6 +53,7 @@ function showCategory( urlObj, options ) {
 
 		// Enhance what we just injected.
 		$content.find( ":jqmData(role=collapsible-set)" ).collapsibleset();
+		$content.find( ":jqmData(role=listview)" ).listview();
 
 		// We don't want the data-url of the page we just modified
 		// to be the url that shows up in the browser's location field,
