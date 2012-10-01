@@ -14,7 +14,7 @@ function showCategory( urlObj, options ) {
 		// the DOM. The id of the page we are going to write our
 		// content into is specified in the hash before the '?'.
 		var pageSelector = urlObj.hash.replace( /\?.*$/, "" );
-	if (categoryName){
+	if (categoryName != "displayAll"){
 			// Get the page we are going to dump our content into.
 		var $page = $( pageSelector ),
 
@@ -37,10 +37,31 @@ function showCategory( urlObj, options ) {
 			}
 		}
 		markup +="</div></ul>";
-		console.log(collapseSet + markup);
+		$header.find( "h1" ).html( categoryName);
+	} else if ( categoryName === "displayAll"){
+		var $page = $( pageSelector ),
+
+			// Get the header for the page.
+			$header = $page.children( ":jqmData(role=header)" ),
+
+			// Get the content area element for the page.
+			$content = $page.children( ":jqmData(role=content)" ),
+
+			collapseSet = "<div id='jobs' data-role='collapsible-set' data-content-theme='b'>",
+			markup = "";
+		for(n in json){
+			var object = json[n];
+			markup += "<div data-role='collapsible' data-inset='true'><h3>" + "#: " + json[n].jobNum[1] + "</h3><ul data-role='listview' data-inset='true'>";
+			for (x in object){
+				markup += "<li>" + object[x][0] + ": " +object[x][1] + "</li>";
+			}
+			markup += "</div>"
+		}
+		markup +="</div></ul>";
+		$header.find( "h1" ).html( "Display All");
+	} 
 		// Find the h1 element in our header and inject the name of
 		// the category into it.
-		$header.find( "h1" ).html( categoryName);
 
 		// Inject the category items markup into the content element.
 		$content.html( collapseSet + markup );
@@ -64,7 +85,6 @@ function showCategory( urlObj, options ) {
 		// Now call changePage() and tell it to switch to
 		// the page we just modified.
 		$.mobile.changePage( $page, options );
-	}
 }
 
 
