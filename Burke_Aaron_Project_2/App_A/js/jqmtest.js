@@ -29,7 +29,8 @@ function showCategory( urlObj, options ) {
 
 				// The markup we are going to inject into the content
 				// area of the page.
-				var markup = "<p>" + categoryName + " Jobs" + "</p><ul data-role='listview' data-inset='true'>";
+				<li data-role="list-divider">Browse By Job Type:</li>
+				var markup = "<ul data-role='listview' data-inset='true'><li data-role='list-divider'>" + categoryName + " Jobs" + "</li>";
 				for(n in json){
 				if ( categoryName === json[n].jobType[1] ) {
 				// The array of items for this category.
