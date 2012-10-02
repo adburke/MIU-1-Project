@@ -1,19 +1,51 @@
-// Load the data for a specific category, based on
-// the URL passed in. Generate markup for the items in the
-// category, inject it into an embedded page, and then make
-// that page the current active page.
+
+$('#home').on('pageinit', function(){
+	//code needed for home page goes here
+});
+		
+// $('#addItem').on('pageinit', function(){
+
+// 		var myForm = $('#formId');
+// 			myForm.validate({
+// 			invalidHandler: function(form, validator) {
+// 			},
+// 			submitHandler: function() {
+// 		var data = myForm.serializeArray();
+// 			storeData(data);
+// 		}
+// 	});
+	
+// 	//any other code needed for addItem page goes here
+	
+// });
+
+$(document).on( "pagebeforechange", function( e, data ) {
+	// We only want to handle changePage() calls where the caller is
+	// asking us to load a page by URL.
+	if ( typeof data.toPage === "string" ) {
+		// We are being asked to load a page by URL, but we only
+		// want to handle URLs that request the data for a specific
+		// category.
+		var u = $.mobile.path.parseUrl( data.toPage ),
+			re = /^#category-item/;
+		if ( u.hash.search(re) !== -1 ) {
+			// We're being asked to display the items for a specific category.
+			// Call our internal method that builds the content for the category
+			// on the fly based on our in-memory category data structure.
+			showCategory( u, data.options );
+
+			// Make sure to tell changePage() we've handled this call so it doesn't
+			// have to do anything.
+			e.preventDefault();
+		};
+	};
+});
+
+//The functions below can go inside or outside the pageinit function for the page in which it is needed.
 function showCategory( urlObj, options ) {
 	var categoryName = urlObj.hash.replace( /.*category=/, "" );
-		// Get the object that represents the category we
-		// are interested in. Note, that at this point we could
-		// instead fire off an ajax request to fetch the data, but
-		// for the purposes of this sample, it's already in memory.
-		//job = json[x].jobType,
-
-		// The pages we use to display our content are already in
-		// the DOM. The id of the page we are going to write our
-		// content into is specified in the hash before the '?'.
-		var pageSelector = urlObj.hash.replace( /\?.*$/, "" );
+	var pageSelector = urlObj.hash.replace( /\?.*$/, "" );
+	
 	if (categoryName != "displayAll"){
 			// Get the page we are going to dump our content into.
 		var $page = $( pageSelector ),
@@ -32,11 +64,12 @@ function showCategory( urlObj, options ) {
 				markup += "<div data-role='collapsible' data-inset='true'><h3>" + "#: " + json[n].jobNum[1] + "</h3><ul data-role='listview' data-inset='true'>";
 				for (x in object){
 					markup += "<li>" + object[x][0] + ": " +object[x][1] + "</li>";
-				}
+				};
 				markup += "</div>"
-			}
-		}
+			};
+		};
 		markup +="</div></ul>";
+		// Find the h1 element in our header and inject the name of the category into it.
 		$header.find( "h1" ).html( categoryName);
 	} else if ( categoryName === "displayAll"){
 		var $page = $( pageSelector ),
@@ -54,13 +87,14 @@ function showCategory( urlObj, options ) {
 			markup += "<div data-role='collapsible' data-inset='true'><h3>" + "#: " + json[n].jobNum[1] + "</h3><ul data-role='listview' data-inset='true'>";
 			for (x in object){
 				markup += "<li>" + object[x][0] + ": " +object[x][1] + "</li>";
-			}
+			};
 			markup += "</div>"
-		}
+		};
 		markup +="</div></ul>";
+		// Find the h1 element in our header and inject the name of the category into it.
 		$header.find( "h1" ).html( "Display All");
-	} 
-		// Find the h1 element in our header and inject the name of
+	};
+			// Find the h1 element in our header and inject the name of
 		// the category into it.
 
 		// Inject the category items markup into the content element.
@@ -85,33 +119,26 @@ function showCategory( urlObj, options ) {
 		// Now call changePage() and tell it to switch to
 		// the page we just modified.
 		$.mobile.changePage( $page, options );
-}
+};
+
+var autofillData = function (){
+	 
+};
+
+var getData = function(){
+
+};
+
+var storeData = function(data){
+	
+};
+
+var	deleteItem = function (){
+			
+};
+					
+var clearLocal = function(){
+
+};
 
 
-// Listen for any attempts to call changePage().
-$(document).bind( "pagebeforechange", function( e, data ) {
-	// We only want to handle changePage() calls where the caller is
-	// asking us to load a page by URL.
-	if ( typeof data.toPage === "string" ) {
-		// We are being asked to load a page by URL, but we only
-		// want to handle URLs that request the data for a specific
-		// category.
-		var u = $.mobile.path.parseUrl( data.toPage ),
-			re = /^#category-item/;
-		if ( u.hash.search(re) !== -1 ) {
-			// We're being asked to display the items for a specific category.
-			// Call our internal method that builds the content for the category
-			// on the fly based on our in-memory category data structure.
-			showCategory( u, data.options );
-
-			// Make sure to tell changePage() we've handled this call so it doesn't
-			// have to do anything.
-			e.preventDefault();
-		}
-	}
-});
-
-/*for(n in json){
-	console.log(n);
-	console.log(json[n].jobType[1]);
-}*/
