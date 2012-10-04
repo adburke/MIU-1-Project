@@ -1,0 +1,189 @@
+/* 	Project 1
+	MIU 1209
+ 	Aaron Burke
+*/
+
+div#wrapper{
+	width: 320px;
+	margin: 0 auto;
+}
+
+body {
+	background-color: #eee;	
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	color: #333;
+	margin:0;
+	padding:0;
+}
+h1 {
+	margin: 0 0 0 60px;
+}
+header h1 {
+	margin-left:60px;
+	padding:0;
+	font-size: 2em;
+	color:#666666;
+}
+header{
+	border-bottom: 2px solid #000;
+	margin:0;
+	padding: 0;
+	background-color: #cccccc;
+}
+/*#cta {
+	margin:0 auto;
+	width:100%;
+	padding-left: 10px;
+	margin-bottom:-30px;
+	margin-top: -5px;
+}*/
+form {
+	width:100%;
+	margin:0;
+	padding:0;
+}
+fieldset {
+	border:none;
+	margin:0 0 5px 0;
+	padding-top:10px;
+	width: 100%;
+}
+legend {
+	background: #000000; /* Old browsers */
+	background: -moz-linear-gradient(left,  #000000 0%, #eeeeee 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#000000), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #000000 0%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #000000 0%,#eeeeee 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #000000 0%,#eeeeee 100%); /* IE10+ */
+	background: linear-gradient(to right,  #000000 0%,#eeeeee 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#eeeeee',GradientType=1 ); /* IE6-9 */
+	color: #fff;
+	margin:0 0 0 0;
+	padding: 2px 0 2px 10px;
+	width: 312px;
+	font-size: 1.5em;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+ul#order, ul#descr {
+	margin:2px 0 0 5px;
+	padding:0;
+	/*margin-left:5px;*/
+}
+li {
+	list-style: none;
+
+}
+label {
+	float:left;
+	width: 4em;
+	text-align: right;
+	clear:left;
+	margin: 0 10px 0 0;
+	font-size: 1.5em;
+}
+input, select {
+	margin-bottom: 8px;
+	font-size: 1em;
+	width: 180px;
+}
+textarea {
+	width: 184px;
+	margin-bottom: 5px;
+}
+li#radio label {
+	float:none;
+	margin: auto;
+}
+.radio {
+	vertical-align: middle;
+	width: auto;
+}
+li#radio {
+	display:inline;
+}
+label#designLabel, input#design {
+	width:310px;
+	text-align: center;
+	margin: 0;
+}
+input#design {
+	margin-top: 3px;
+}
+input#submit, input#searchBtn {
+	margin: 0 0 2px 70px;
+	font-size: 1.6em;
+	font-family: 'Yanone Kaffeesatz', arial, sans-serif;
+}
+a {
+	font-size: 1.6em;
+	font-family: 'Yanone Kaffeesatz', arial, sans-serif;
+}
+a#clearData {
+	margin: 5px 5px 0 40px;
+}
+a#displayData {
+	margin-right: 5px;
+}
+a#newJob {
+	margin-right: 5px;
+}
+#errors {
+	list-style: none;
+	color:#ff0000;
+	margin:0;
+	padding:0;
+}
+#items, #searchItems {
+	width: 300px;
+	margin: 0 auto;
+	background-color: #fff;
+}
+#items li, #items a {
+	font-size: 1.2em;
+	margin-bottom: 2px;
+}
+#items ul li ul li {
+	margin-left: 15px;
+}
+#edit {
+	margin-left: 50px;
+}
+#delete {
+	margin-left: 10px;
+}
+#items ul {
+	margin:0;
+	padding: 0;
+}
+#items ul ul{
+	margin:0;
+	padding: 0;
+	
+}
+#items ul li ul li img {
+	margin-left: -15px;
+	padding: 0;
+}
+input#clearData, input#displayData, input#searchDisplay, input#newJob {
+	margin: 0;
+	padding:0;
+	font-size: 1.2em;
+	font-family: 'Yanone Kaffeesatz', arial, sans-serif;
+}
+form#search{
+	margin-left: -6px;
+}
+#search {
+	padding-bottom: 0;
+	padding-top: 0;
+}
+div#cta.ui-content.ui-body-d {
+	width: 320px;
+	margin: 0 auto;
+	padding:0;
+}
+div.ui-content.ui-body-d {
+	padding-top:0;
+}

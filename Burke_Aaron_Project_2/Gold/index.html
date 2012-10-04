@@ -1,0 +1,193 @@
+<!-- 	Project 1
+		MIU 1209
+		Aaron Burke 
+-->
+
+<!doctype html>  
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Job Manager</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="css/jqmstyles.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+	<body>
+		<div id="home" data-role="page" data-theme="d">
+
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>JOB MANAGER</h1>
+			</div><!-- /header -->
+			<div data-role="content" data-theme="d" id="cta">
+				<a href="#addItem"><img src="images/cta.png" alt="cta"></a>
+			</div>
+			<!-- <div data-role="content" data-theme="d" id="search">
+			  <input type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+			</div> -->
+			<div data-role="content" data-theme="d">
+				<ul id="browse" data-role="listview" data-inset="true" data-theme="d" data-divider-theme="b" data-filter="true">
+					<li data-role="list-divider">Browse By Job Type:</li>
+					<li><a href="#category-items?category=Banner"><img src="images/Banner-i.png"><h3>Banner</h3></a></li>
+					<li><a href="#category-items?category=Decal"><img src="images/Decal-i.png"><h3>Decal</h3></a></li>
+					<li><a href="#category-items?category=Sign"><img src="images/Sign-i.png"><h3>Sign</h3></a></li>
+					<li><a href="#category-items?category=Display"><img src="images/Display-i.png"><h3>Display</h3></a></li>
+					<li><a href="#category-items?category=Poster"><img src="images/Poster-i.png"><h3>Poster</h3></a></li>
+					<li><a href="#category-items?category=Custom"><img src="images/Custom-i.png"><h3>Custom</h3></a></li>
+				</ul>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-theme="a">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li><a href="#category-items?category=displayAll" data-icon="grid">Display Jobs</a></li>
+						<li><a href="#addItem" data-icon="plus">New Job</a></li>
+					</ul>
+				</div>
+			</div><!-- /footer -->
+		</div><!-- home page -->
+
+		<div id="category-items" data-role="page" data-theme="d" data-add-back-btn="true">
+  			<div data-role="header" data-theme="b"><h1></h1></div>
+  			<div data-role="content"></div>
+  			<div data-role="footer" data-theme="a">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li><a href="#category-items?category=displayAll" data-icon="grid">Display Jobs</a></li>
+						<li><a href="#addItem" data-icon="plus">New Job</a></li>
+					</ul>
+				</div>
+			</div><!-- /footer -->
+		</div><!-- category-items page -->
+
+		<div id="addItem" data-role="page" data-theme="d" data-add-back-btn="true">
+
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>Job Creation</h1>
+			</div><!-- /header -->
+			<div data-role="content" data-theme="d">
+				<form action="#" method="post" id="jobForm">
+				<ul data-role="listview" data-inset="true">
+    				<li data-role="list-divider">Job Info</li>
+    				<li style="padding:0;border:0;">
+					<fieldset>
+						<div data-role="fieldcontain">
+							<label for="jobnum">Job #: </label><input type="text" id="jobnum" name="jobnum" readonly/>
+						</div>
+						<div data-role="fieldcontain">
+							<label for="company">Company: </label><input type="text"  id="company" name="company" class="required" required aria-required="true" placeholder="Company Name"/>
+						</div>
+						<div data-role="fieldcontain">
+							<label for="address">Address: </label><input type="text"  id="address" name="address" class="required" required aria-required="true" placeholder="123 Test Blvd."/>
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="city">City: </label><input type="text"  id="city" name="city" class="required" required aria-required="true" placeholder="Huntsville"/>
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="state">State: </label><input type="text"  id="state" name="state" class="required" required aria-required="true" placeholder="Alabama"/>
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="zipcode">Zip Code: </label><input type="text"  id="zipcode" name="zipcode" class="required digits" required aria-required="true" placeholder="#####"/>
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="phone">Phone: </label><input type="tel"  id="phone" name="phone" class="required phoneUS" required aria-required="true" placeholder="###-###-####"/>
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="email">Email: </label><input type="email"  id="email" name="email" class="required email" required aria-required="true" placeholder="example@abc.com"/>
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="orderdate">Order Date: </label><input type="date" id="orderdate" name="orderdate" class="required date" required aria-required="true" placeholder="yyyy-mm-dd"/>
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="needbydate">Due Date: </label><input type="date"  id="needbydate" name="needbydate" class="required date" required aria-required="true" placeholder="yyyy-mm-dd"/>
+						</div>
+						<div data-role="fieldcontain" >
+							<fieldset data-role="controlgroup" data-type="horizontal" >
+								<div role ="heading">Rush Order?</div>
+									<label for="yes">Yes</label><input type="radio" value="Yes" id="yes" name="rush" class="radio" />
+									<label for="no">No</label><input type="radio" value="No" id="no" name="rush" class="radio" />
+							</fieldset>
+						</div>
+					</fieldset>
+				</ul>
+				<ul data-role="listview" data-inset="true">
+    				<li data-role="list-divider">Job Description</li>
+    				<li style="padding:0;border:0;">
+					<fieldset>
+						<div data-role="fieldcontain" >
+							<label for="select-choice-min" class="select">Job Type:</label>
+							<select name="select-choice-min" id="jobTypeList" data-mini="true" data-native-menu="false" >
+								<option value="">--Job Types--</option>
+								<option value="Banner">Banner</option>
+								<option value="Decal">Decal</option>
+								<option value="Sign">Sign</option>
+								<option value="Display">Display</option>
+								<option value="Poster">Poster</option>
+								<option value="Custom">Custom</option>
+							</select>
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="custom">Custom Info:</label><textarea id="custom" name="custom" class="custom"></textarea>
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="qty">Quantity: </label><input type="number"  id="qty" name="qty" required aria-required="true" />
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="production">LOE Hours: </label><input type="number"  id="production" name="production" required aria-required="true" />
+						</div>
+						<div data-role="fieldcontain" >
+							<label for="slider-fill">Estimation of Design Hours 1-10: </label><input type="range" min="1" max="10" id="slider-fill" name="slider-fill" data-highlight="true" />
+						</div>
+					</fieldset>
+				</ul>
+				<input type="reset" class="reset" value="Reset Form" />
+				<input type="submit" class="submit" value="Save Job" />
+				<a href="#formErrors" id="errorsLink" data-rel="dialog" data-transition="pop">Open Errors</a>
+			</form>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-theme="a">
+				<div data-role="navbar" id="addItemNav" data-iconpos="top">
+					<ul>
+						<li><a href="#category-items?category=displayAll" data-icon="grid">Display Jobs</a></li>
+						<li><a href="#" id="clearData" data-icon="minus">Clear Data</a></li>
+					</ul>
+				</div>
+			</div><!-- /footer -->
+		</div><!-- home page -->
+		<div id="formErrors" data-role="dialog" data-theme="d">
+
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>Missing Fields</h1>
+			</div><!-- /header -->
+			<div data-role="content">
+				<ul>
+					<li>Test.</li>
+				</ul>
+			</div>
+		</div>
+
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+		<script src="js/libs/jquery.validate.min.js"></script>
+		<script src="js/libs/additional-methods.min.js"></script>
+		<script src="js/json.js"></script>
+		<script src="js/jqmtest.js"></script>
+		
+	</body>
+</html>
+
