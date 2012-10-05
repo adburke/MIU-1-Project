@@ -32,7 +32,7 @@
 
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<h1>JOB MANAGER</h1>
-				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Menu</a>	
+				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" class="ui-btn-right">Menu</a>	
 			</div><!-- /header -->
 			<div data-role="popup" id="popupMenu" data-theme="a">
 				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
@@ -72,9 +72,9 @@
 			</div><!-- /footer -->
 		</div><!-- home page -->
 
-		<div id="category-items" data-role="page" data-theme="d">
+		<div id="category-items" data-role="page" data-theme="d" data-add-back-btn="true">
   			<div data-role="header" data-theme="b"><h1></h1>
- 				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Menu</a>
+ 				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" class="ui-btn-right">Menu</a>
   			</div>
   			<div data-role="popup" id="popupMenu" data-theme="a">
 				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
@@ -97,11 +97,11 @@
 			</div><!-- /footer -->
 		</div><!-- category-items page -->
 
-		<div id="addItem" data-role="page" data-theme="d">
+		<div id="addItem" data-role="page" data-theme="d" data-add-back-btn="true">
 
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<h1>Job Creation</h1>
-				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Menu</a>
+				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" class="ui-btn-right">Menu</a>
 			</div><!-- /header -->
 			<div data-role="popup" id="popupMenu" data-theme="a">
 				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
@@ -215,6 +215,30 @@
 			</div>
 		</div>
 
+		<div id="about" data-role="page" data-theme="d" data-add-back-btn="true">
+  			<div data-role="header" data-theme="b" ><h1></h1>
+ 				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" class="ui-btn-right">Menu</a>
+  			</div>
+  			<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li data-role="divider" data-theme="a">Navigation</li>
+					<li><a href="#home">Index</a></li>
+					<li><a href="#addItem">New Job Form</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
+  			<div data-role="content"></div>
+  			<div data-role="footer" data-theme="a">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li><a href="#category-items?category=displayAll" data-icon="grid">Display Jobs</a></li>
+						<li><a href="#addItem" data-icon="plus">New Job</a></li>
+					</ul>
+				</div>
+			</div><!-- /footer -->
+		</div><!-- category-items page -->
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 		<script src="js/libs/jquery.validate.min.js"></script>
