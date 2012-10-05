@@ -82,7 +82,7 @@ $(document).on( "pagebeforechange", function( e, data ) {
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
-// Function that populates the Browse By category place holder page in index.html
+// Function that populates the Browse By categories and localStorage
 function showCategory( urlObj, options ) {
 	var categoryName = urlObj.hash.replace( /.*category=/, "" ),
 		pageSelector = urlObj.hash.replace( /\?.*$/, "" ),
@@ -97,7 +97,7 @@ function showCategory( urlObj, options ) {
 
 		collapseSet = "<div id='jobs' data-role='collapsible-set' data-content-theme='b'>",
 		markup = "";
-	if (categoryName != "displayAll" && categoryName != "jobInfo"){
+	if (categoryName != "displayAll" && categoryName != "displayStorage"){
 		// For each category selected
 		for(var n in json){
 			if ( categoryName === json[n].jobType[1] ) {
@@ -113,6 +113,19 @@ function showCategory( urlObj, options ) {
 		// Find the h1 element in our header and inject the name of the category into it.
 		$header.find( "h1" ).html( categoryName);
 	} else if ( categoryName === "displayAll"){
+		for(var n in json){
+			var object = json[n];
+			markup += "<div data-role='collapsible' data-inset='true'><h3>" + "#: " + json[n].jobNum[1] + "</h3><ul data-role='listview' data-inset='true'>";
+			for (var x in object){
+				markup += "<li>" + object[x][0] + ": " +object[x][1] + "</li>";
+			};
+			markup += "</ul></div>";
+		};
+		markup +="</div></ul>";
+		// Find the h1 element in our header and inject the name of the category into it.
+		$header.find( "h1" ).html( "Display All");
+	} else if ( categoryName === "displayStorage"){
+		
 		for(var n in json){
 			var object = json[n];
 			markup += "<div data-role='collapsible' data-inset='true'><h3>" + "#: " + json[n].jobNum[1] + "</h3><ul data-role='listview' data-inset='true'>";
@@ -153,11 +166,77 @@ function showCategory( urlObj, options ) {
 };
 
 var autofillData = function (){
-	 
+	 for(var n in json){
+		var id = n;
+		localStorage.setItem(id, JSON.stringify(json[n]));
+	};
 };
 
 var getData = function(){
-
+	if (localStorage.length === 1 && localStorage.getItem("jobNumber")){
+		alert("Local Storage does not contain any jobs. Adding job test data.");
+		autoFillData();
+	};
+	if(document.getElementById("items")){
+		var jobListDiv = document.getElementById("items");
+		jobListDiv.parentNode.removeChild(jobListDiv);
+	};
+	// if(searchArray[0]){
+	// 	toggleControl("showSearchData");
+	// } else {
+	// 	toggleControl("showData");
+	// };
+	makeDiv = document.createElement("div");
+	makeDiv.setAttribute("id", "items");
+	var makeList = document.createElement("ul");
+	makeDiv.appendChild(makeList);
+	document.body.appendChild(makeDiv);
+	ge("items").style.display = "block";
+	for(var i = 0, j = localStorage.length; i < j; i++){
+		// Modified section to just return search results
+		if(searchArray[0] && Number(localStorage.key(i))/1 === Number(localStorage.key(i))){
+			var makeLi = document.createElement("li");
+			var linksLi = document.createElement("li");
+			makeList.appendChild(makeLi);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var object = JSON.parse(value);
+			var makeSubList = document.createElement("ul");
+			makeLi.appendChild(makeSubList);
+			for(var n = 0, m = searchArray.length; n < m; n++){ 
+				if(searchArray[n] === key){
+					getImage(makeSubList, object.jobType[1]);
+					for(var x in object){
+						var makeSubLi = document.createElement("li");
+						makeSubList.appendChild(makeSubLi);
+						var objText = object[x][0]+ ": "+object[x][1];
+						makeSubLi.innerHTML = objText;
+					};
+					makeSubList.appendChild(linksLi);
+					makeItemLinks(key, linksLi);
+				};
+			};
+		// Original getData path to display all local storage
+		} else if(Number(localStorage.key(i))/1 === Number(localStorage.key(i))){
+			var makeLi = document.createElement("li");
+			var linksLi = document.createElement("li");
+			makeList.appendChild(makeLi);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var object = JSON.parse(value);
+			var makeSubList = document.createElement("ul");
+			makeLi.appendChild(makeSubList);
+			getImage(makeSubList, object.jobType[1]);
+			for(var x in object){
+				var makeSubLi = document.createElement("li");
+				makeSubList.appendChild(makeSubLi);
+				var objText = object[x][0]+ ": "+object[x][1];
+				makeSubLi.innerHTML = objText;
+			};
+			makeSubList.appendChild(linksLi);
+			makeItemLinks(key, linksLi);
+		};
+	};
 };
 
 function jobCount(){
