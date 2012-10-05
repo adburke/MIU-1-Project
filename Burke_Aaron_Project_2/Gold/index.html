@@ -21,7 +21,7 @@
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="css/jqmstyles.css">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 	<script src="js/libs/modernizr.custom.min.js"></script>
@@ -32,7 +32,18 @@
 
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<h1>JOB MANAGER</h1>
+				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Menu</a>	
 			</div><!-- /header -->
+			<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li data-role="divider" data-theme="a">Navigation</li>
+					<li><a href="#home">Index</a></li>
+					<li><a href="#addItem">New Job Form</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
 			<div data-role="content" data-theme="d" id="cta">
 				<a href="#addItem"><img src="images/cta.png" alt="cta"></a>
 			</div>
@@ -61,8 +72,20 @@
 			</div><!-- /footer -->
 		</div><!-- home page -->
 
-		<div id="category-items" data-role="page" data-theme="d" data-add-back-btn="true">
-  			<div data-role="header" data-theme="b"><h1></h1></div>
+		<div id="category-items" data-role="page" data-theme="d">
+  			<div data-role="header" data-theme="b"><h1></h1>
+ 				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Menu</a>
+  			</div>
+  			<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li data-role="divider" data-theme="a">Navigation</li>
+					<li><a href="#home">Index</a></li>
+					<li><a href="#addItem">New Job Form</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
   			<div data-role="content"></div>
   			<div data-role="footer" data-theme="a">
 				<div data-role="navbar" data-iconpos="top">
@@ -74,11 +97,22 @@
 			</div><!-- /footer -->
 		</div><!-- category-items page -->
 
-		<div id="addItem" data-role="page" data-theme="d" data-add-back-btn="true">
+		<div id="addItem" data-role="page" data-theme="d">
 
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<h1>Job Creation</h1>
+				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Menu</a>
 			</div><!-- /header -->
+			<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li data-role="divider" data-theme="a">Navigation</li>
+					<li><a href="#home">Index</a></li>
+					<li><a href="#addItem">New Job Form</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
 			<div data-role="content" data-theme="d">
 				<form action="#" method="post" id="jobForm">
 				<ul data-role="listview" data-inset="true">
@@ -181,8 +215,8 @@
 			</div>
 		</div>
 
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 		<script src="js/libs/jquery.validate.min.js"></script>
 		<script src="js/libs/additional-methods.min.js"></script>
 		<script src="js/json.js"></script>

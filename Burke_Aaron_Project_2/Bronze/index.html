@@ -21,7 +21,7 @@
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="css/jqmstyles.css">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
@@ -29,11 +29,22 @@
 
 </head>
 	<body>
-		<div data-role="page">
+		<div data-role="page" id="home" data-theme="d">
 
 			<div data-role="header" data-theme="b" data-position="fixed">
 				<h1>JOB MANAGER</h1>
+				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Menu</a>	
 			</div><!-- /header -->
+			<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li data-role="divider" data-theme="a">Navigation</li>
+					<li><a href="#home">Index</a></li>
+					<li><a href="additem.html" data-ajax="false">New Job Form</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
 			<div data-role="content" data-theme="d" id="cta">
 				<a href="additem.html" data-ajax="false"><img src="images/cta.png" alt="cta"></a>
 			</div>
@@ -41,26 +52,59 @@
 				<ul data-role="listview"  data-theme="d" data-divider-theme="b">
 					<li data-role="list-divider">Browse By Job Type:</li>
 					<div class="ui-grid-a">
-						<div class="ui-block-a"><a href="#"><img src="images/Banner-g.png"></a></div>
-						<div class="ui-block-b"><a href="#"><img src="images/Decal-g.png"></a></div>
-						<div class="ui-block-a"><a href="#"><img src="images/Sign-g.png"></a></div>
-						<div class="ui-block-b"><a href="#"><img src="images/Display-g.png"></a></div>
-						<div class="ui-block-a"><a href="#"><img src="images/Poster-g.png"></a></div>
-						<div class="ui-block-b"><a href="#"><img src="images/Custom-g.png"><a href="#"></a></div>
+						<div class="ui-block-a"><a href="#category-items"><img src="images/Banner-g.png"></a></div>
+						<div class="ui-block-b"><a href="#category-items"><img src="images/Decal-g.png"></a></div>
+						<div class="ui-block-a"><a href="#category-items"><img src="images/Sign-g.png"></a></div>
+						<div class="ui-block-b"><a href="#category-items"><img src="images/Display-g.png"></a></div>
+						<div class="ui-block-a"><a href="#category-items"><img src="images/Poster-g.png"></a></div>
+						<div class="ui-block-b"><a href="#category-items"><img src="images/Custom-g.png"></a></div>
 					</div><!-- /grid-a -->
 				</ul>
 			</div><!-- /content -->
 			<div data-role="footer" data-theme="a">
 				<div data-role="navbar" data-iconpos="top">
 					<ul>
-						<li><a href="#category-items?category=displayAll" data-icon="grid">Display Jobs</a></li>
+						<li><a href="#category-items" data-icon="grid">Display Jobs</a></li>
 						<li><a href="additem.html" data-ajax="false" data-icon="plus">New Job</a></li>
 					</ul>
 				</div>
 			</div><!-- /footer -->
 		</div><!-- /page -->
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+		<div id="category-items" data-role="page" data-theme="d" data-add-back-btn="true">
+  			<div data-role="header" data-theme="b"><h1></h1>
+  				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Menu</a>
+  			</div>
+  			<div data-role="popup" id="popupMenu" data-theme="a">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li data-role="divider" data-theme="a">Navigation</li>
+					<li><a href="#home">Index</a></li>
+					<li><a href="additem.html" data-ajax="false">New Job Form</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
+  			<div data-role="content"></div>
+  				<ul id="browse" data-role="listview" data-theme="d" data-divider-theme="b">
+					<li data-role="list-divider">List</li>
+					<li><h3>Banner</h3></li>
+					<li><h3>Decal</h3></li>
+					<li><h3>Sign</h3></li>
+					<li><h3>Display</h3></li>
+					<li><h3>Poster</h3></li>
+					<li><h3>Custom</h3></li>
+				</ul>	
+  			<div data-role="footer" data-theme="a">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li><a href="#category-items" data-icon="grid">Display Jobs</a></li>
+						<li><a href="additem.html" data-ajax="false" data-icon="plus">New Job</a></li>
+					</ul>
+				</div>
+			</div><!-- /footer -->
+		 </div><!-- category-items page --> 
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 		<script src="js/json.js"></script>
 		
 	</body>
