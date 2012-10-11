@@ -21,6 +21,7 @@
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="css/jqmstyles.css">
+	<!-- <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" /> -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
@@ -65,7 +66,7 @@
 			<div data-role="footer" data-theme="a">
 				<div data-role="navbar" data-iconpos="top">
 					<ul>
-						<li><a href="#category-items?category=displayAll" data-icon="grid">Display Jobs</a></li>
+						<li><a href="#category-items?category=displayAll" data-icon="grid">Display JSON</a></li>
 						<li><a href="#addItem" data-icon="plus">New Job</a></li>
 					</ul>
 				</div>
@@ -86,11 +87,11 @@
 					<li><a href="#about">About</a></li>
 				</ul>
 			</div>
-  			<div data-role="content"></div>
+  			<div data-role="content" ></div>
   			<div data-role="footer" data-theme="a">
 				<div data-role="navbar" data-iconpos="top">
 					<ul>
-						<li><a href="#category-items?category=displayAll" data-icon="grid">Display Jobs</a></li>
+						<li><a href="#category-items?category=displayAll" data-icon="grid">Display JSON</a></li>
 						<li><a href="#addItem" data-icon="plus">New Job</a></li>
 					</ul>
 				</div>
@@ -120,40 +121,40 @@
     				<li style="padding:0;border:0;">
 					<fieldset>
 						<div data-role="fieldcontain">
-							<label for="jobnum">Job #: </label><input type="text" id="jobnum" name="jobnum" readonly/>
+							<label for="jobnum">Job #: <span>readonly</span></label><input type="text" id="jobnum" name="jobnum" readonly/>
 						</div>
 						<div data-role="fieldcontain">
-							<label for="company">Company: </label><input type="text"  id="company" name="company" class="required" required aria-required="true" placeholder="Company Name"/>
+							<label for="company">Company: <span>required</span></label><input type="text"  id="company" name="company" class="required" required aria-required="true" placeholder="Company Name"/>
 						</div>
 						<div data-role="fieldcontain">
-							<label for="address">Address: </label><input type="text"  id="address" name="address" class="required" required aria-required="true" placeholder="123 Test Blvd."/>
+							<label for="address">Address: <span>required</span></label><input type="text"  id="address" name="address" class="required" required aria-required="true" placeholder="123 Test Blvd."/>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="city">City: </label><input type="text"  id="city" name="city" class="required" required aria-required="true" placeholder="Huntsville"/>
+							<label for="city">City: <span>required</span></label><input type="text"  id="city" name="city" class="required" required aria-required="true" placeholder="Huntsville"/>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="state">State: </label><input type="text"  id="state" name="state" class="required" required aria-required="true" placeholder="Alabama"/>
+							<label for="state">State: <span>required</span></label><input type="text"  id="state" name="state" class="required" required aria-required="true" placeholder="Alabama"/>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="zipcode">Zip Code: </label><input type="text"  id="zipcode" name="zipcode" class="required digits" required aria-required="true" placeholder="#####"/>
+							<label for="zipcode">Zip Code: <span>required</span></label><input type="text"  id="zipcode" name="zipcode" class="required digits" required aria-required="true" placeholder="#####"/>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="phone">Phone: </label><input type="tel"  id="phone" name="phone" class="required phoneUS" required aria-required="true" placeholder="###-###-####"/>
+							<label for="phone">Phone: <span>required</span></label><input type="tel"  id="phone" name="phone" class="required phoneUS" required aria-required="true" placeholder="###-###-####"/>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="email">Email: </label><input type="email"  id="email" name="email" class="required email" required aria-required="true" placeholder="example@abc.com"/>
+							<label for="email">Email: <span>required</span></label><input type="email"  id="email" name="email" class="required email" required aria-required="true" placeholder="example@abc.com"/>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="orderdate">Order Date: </label><input type="date" id="orderdate" name="orderdate" class="required date" required aria-required="true" placeholder="yyyy-mm-dd"/>
+							<label for="orderdate">Order Date: <span>required</span></label><input type="date" id="orderdate" name="orderdate" class="required date" required aria-required="true" />
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="needbydate">Due Date: </label><input type="date"  id="needbydate" name="needbydate" class="required date" required aria-required="true" placeholder="yyyy-mm-dd"/>
+							<label for="needbydate">Due Date: <span>required</span></label><input type="date"  id="needbydate" name="needbydate" class="required date" required aria-required="true" placeholder="yyyy-mm-dd"/>
 						</div>
 						<div data-role="fieldcontain" >
 							<fieldset data-role="controlgroup" data-type="horizontal" >
 								<div role ="heading">Rush Order?</div>
 									<label for="yes">Yes</label><input type="radio" value="Yes" id="yes" name="rush" class="radio" />
-									<label for="no">No</label><input type="radio" value="No" id="no" name="rush" class="radio" />
+									<label for="no">No</label><input type="radio" value="No" id="no" name="rush" class="radio" checked="checked"/>
 							</fieldset>
 						</div>
 					</fieldset>
@@ -163,7 +164,7 @@
     				<li style="padding:0;border:0;">
 					<fieldset>
 						<div data-role="fieldcontain" >
-							<label for="select-choice-min" class="select">Job Type:</label>
+							<label for="select-choice-min" class="select">Job Type: <span>required</span></label>
 							<select name="select-choice-min" id="jobTypeList" data-mini="true" data-native-menu="false" >
 								<option value="">--Job Types--</option>
 								<option value="Banner">Banner</option>
@@ -178,18 +179,18 @@
 							<label for="custom">Custom Info:</label><textarea id="custom" name="custom" class="custom"></textarea>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="qty">Quantity: </label><input type="number"  id="qty" name="qty" required aria-required="true" />
+							<label for="qty">Quantity: <span>required</span></label><input type="number"  id="qty" name="qty" required aria-required="true" placeholder="#"/>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="production">LOE Hours: </label><input type="number"  id="production" name="production" required aria-required="true" />
+							<label for="production">LOE Hours: <span>required</span></label><input type="number"  id="production" name="production" required aria-required="true" placeholder="#"/>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="slider-fill">Estimation of Design Hours 1-10: </label><input type="range" min="1" max="10" id="slider-fill" name="slider-fill" data-highlight="true" />
+							<label for="slider-fill">Estimation of Design Hours 1-10: </label><input type="range" min="1" max="10" value="1" id="slider-fill" name="slider-fill" data-highlight="true" />
 						</div>
 					</fieldset>
 				</ul>
-				<input type="reset" class="reset" value="Reset Form" />
 				<input type="submit" class="submit" value="Save Job" />
+				<input type="reset" class="reset" value="Reset Form" />
 				<a href="#formErrors" id="errorsLink" data-rel="dialog" data-transition="pop">Open Errors</a>
 			</form>
 			</div><!-- /content -->
@@ -197,7 +198,7 @@
 			<div data-role="footer" data-theme="a">
 				<div data-role="navbar" id="addItemNav" data-iconpos="top">
 					<ul>
-						<li><a href="#category-items?category=displayStorage" data-icon="grid">Display Jobs</a></li>
+						<li><a href="#category-items?category=displayStorage" data-icon="grid">Display Storage</a></li>
 						<li><a href="#" id="clearData" data-icon="minus">Clear Data</a></li>
 					</ul>
 				</div>
@@ -242,7 +243,7 @@
   			<div data-role="footer" data-theme="a">
 				<div data-role="navbar" data-iconpos="top">
 					<ul>
-						<li><a href="#category-items?category=displayAll" data-icon="grid">Display Jobs</a></li>
+						<li><a href="#category-items?category=displayAll" data-icon="grid">Display JSON</a></li>
 						<li><a href="#addItem" data-icon="plus">New Job</a></li>
 					</ul>
 				</div>
@@ -251,11 +252,13 @@
 		</div><!-- about page -->
 
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script> 
+		<!-- <script src="js/libs/jquery-1.8.2.min.js"></script>
+		<script src="js/libs/jquery.mobile-1.2.0.min.js"></script> -->
 		<script src="js/libs/jquery.validate.min.js"></script>
 		<script src="js/libs/additional-methods.min.js"></script>
 		<script src="js/json.js"></script>
-		<script src="js/jqmtest.js"></script>
+		<script src="js/main.js"></script>
 		
 	</body>
 </html>
