@@ -1,5 +1,8 @@
 
 $('#home').on('pageinit', function(){
+	
+});	
+$('#category-items').on('pageinit', function(){
 
 });		
 $('#addItem').on('pageshow', function(){
@@ -77,7 +80,7 @@ $('#addItem').on('pageshow', function(){
 });
 
 // Listen for the page change events by the Browse By buttons on index.html
-$(document).on( "pagebeforechange", function( e, data ) {
+$(document).bind( "pagebeforechange", function( e, data ) {
 	// We only want to handle changePage() calls where the caller is
 	// asking us to load a page by URL.
 	if ( typeof data.toPage === "string" ) {
@@ -113,7 +116,7 @@ function showCategory( urlObj, options ) {
 
 		// Get the content area element for the page.
 		$content = $page.children( ":jqmData(role=content)" ),
-
+		
 		collapseSet = "<div id='jobs' data-role='collapsible-set' data-content-theme='b'>",
 		markup = "";
 		
@@ -132,7 +135,7 @@ function showCategory( urlObj, options ) {
 		markup +="</div></ul>";
 		// Find the h1 element in our header and inject the name of the category into it.
 		$header.find( "h1" ).html( categoryName);
-	} else if ( categoryName === "displayAll"){
+	}  else if ( categoryName === "displayAll"){
 		console.log("displayAll");
 		for(var n in json){
 			var object = json[n];
@@ -163,11 +166,9 @@ function showCategory( urlObj, options ) {
 					//console.log(localData);
 					markup += "<li>" + object[0] + ": " +object[1] + "</li>";
 				};
-				var editLink = "</ul><a id='edit' data-role='button' data-theme='b' data-icon='plus' href='#'>Edit Job</a>"
-				var deleteLink = "<a id='delete' data-role='button' data-theme='b' data-icon='minus' href='#'>Delete Job</a>"
-	
-				markup += editLink + deleteLink;
-				markup += "</div>";
+				var editLink = "<a id='edit' data-role='button' data-theme='b' data-icon='plus' href='#'>Edit Job</a>";
+				var deleteLink = "<a id='delete' data-role='button' data-theme='b' data-icon='minus' href='#'>Delete Job</a>";
+				markup += "</ul>" + editLink + deleteLink + "</div>";
 			};
 		};
 		markup +="</div></ul>";
@@ -177,6 +178,7 @@ function showCategory( urlObj, options ) {
 
 		// Inject the category items markup into the content element.
 		$content.html( collapseSet + markup );
+		
 		// Pages are lazily enhanced. We call page() on the page
 		// element to make sure it is always enhanced before we
 		// attempt to enhance the listview markup we just injected.
@@ -264,6 +266,7 @@ var storeData = function(key){
 };
 
 var	deleteItem = function (){
+	console.log("test");
 	var ask = confirm("Are you sure you want to delete this job?");
 	if(ask){
 		localStorage.removeItem(this.key);

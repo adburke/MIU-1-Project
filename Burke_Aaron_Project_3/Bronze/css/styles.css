@@ -175,3 +175,7 @@ input#clearData, input#displayData, input#searchDisplay, input#newJob {
 form#search{
 	margin-left: -6px;
 }
+legend span {
+	margin-left: 20px;
+	font-size: .7em;
+}

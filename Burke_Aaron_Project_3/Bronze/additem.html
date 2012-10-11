@@ -39,31 +39,31 @@
 			</form>
 			<form action="#" method="post" id="jobForm">
 				<fieldset>
-					<legend>Order Info</legend>
+					<legend>Order Info<span> *required</span></legend>
 					<ul id="errors"></ul>
 					<ul id="order">
-						<li id="jobum"><label for="jobnum">Job #: </label><input type="text" class="rounded" id="jobnum" name="jobnum" readonly/></li>
-						<li><label for="company">Company: </label><input type="text" class="rounded" id="company" name="customer" required aria-required="true" placeholder="Company Name"/></li>
-						<li><label for="address">Address: </label><input type="text" class="rounded" id="address" name="address" required aria-required="true" placeholder="123 Test Blvd."/></li>
-						<li><label for="city">City: </label><input type="text" class="rounded" id="city" name="city" required aria-required="true" placeholder="Huntsville"/></li>
-						<li><label for="state">State: </label><input type="text" class="rounded" id="state" name="state" required aria-required="true" placeholder="Alabama"/></li>
-						<li><label for="zipcode">Zip Code: </label><input type="text" class="rounded" id="zipcode" name="zipcode" required aria-required="true" placeholder="xxxxx"/></li>
-						<li><label for="phone">Phone: </label><input type="tel" class="rounded" id="phone" name="phone" required aria-required="true" placeholder="xxx-xxx-xxxx"/></li>
-						<li><label for="email">Email: </label><input type="email" class="rounded" id="email" name="email" required aria-required="true" placeholder="abd@abc.com"/></li>
-						<li><label for="orderdate">Order Date: </label><input type="date" class="rounded" min="2012-08-30" max="2015-08-30" id="orderdate" name="orderdate" required aria-required="true" placeholder="yyyy-mm-dd"/></li>
-						<li><label for="needbydate">Due Date: </label><input type="date" class="rounded" id="needbydate" name="needbydate" required aria-required="true" placeholder="yyyy-mm-dd"/></li>
+						<li id="jobum"><label for="jobnum">Job #: *</label><input type="text" class="rounded" id="jobnum" name="jobnum" readonly/></li>
+						<li><label for="company">Company: *</label><input type="text" class="rounded" id="company" name="customer" required aria-required="true" placeholder="Company Name"/></li>
+						<li><label for="address">Address: *</label><input type="text" class="rounded" id="address" name="address" required aria-required="true" placeholder="123 Test Blvd."/></li>
+						<li><label for="city">City: *</label><input type="text" class="rounded" id="city" name="city" required aria-required="true" placeholder="Huntsville"/></li>
+						<li><label for="state">State: *</label><input type="text" class="rounded" id="state" name="state" required aria-required="true" placeholder="Alabama"/></li>
+						<li><label for="zipcode">Zip Code: *</label><input type="text" class="rounded" id="zipcode" name="zipcode" required aria-required="true" placeholder="xxxxx"/></li>
+						<li><label for="phone">Phone: *</label><input type="tel" class="rounded" id="phone" name="phone" required aria-required="true" placeholder="xxx-xxx-xxxx"/></li>
+						<li><label for="email">Email: *</label><input type="email" class="rounded" id="email" name="email" required aria-required="true" placeholder="abd@abc.com"/></li>
+						<li><label for="orderdate">Order Date: *</label><input type="date" class="rounded" min="2012-08-30" max="2015-08-30" id="orderdate" name="orderdate" required aria-required="true" placeholder="yyyy-mm-dd"/></li>
+						<li><label for="needbydate">Due Date: *</label><input type="date" class="rounded" id="needbydate" name="needbydate" required aria-required="true" placeholder="yyyy-mm-dd"/></li>
 						<li id="rush"><label for="rush">Rush Order?</label></li>	
 						<li id="radio"><label for="yes">Yes</label><input type="radio" value="Yes" id="yes" name="rush" class="radio" /></li>
 						<li id="radio"><label for="no">No</label><input type="radio" value="No" id="no" name="rush" class="radio" /></li>
 					</ul>	
 				</fieldset>	
 				<fieldset>
-					<legend>Job Description</legend>
+					<legend>Job Description<span> *required</span></legend>
 					<ul id="descr">
-						<li id="jobTypes"><label for="jobTypes">Job Type:</label></li>
+						<li id="jobTypes"><label for="jobTypes">Job Type: *</label></li>
 						<li><label for="custom">Custom Info:</label><textarea id="custom" class="custom"></textarea></li>
-						<li><label for="qty">Quantity: </label><input type="number" class="rounded" id="qty" name="qty" required aria-required="true" /></li>
-						<li><label for="production">LOE Hours: </label><input type="number" class="rounded" id="production" name="production" required aria-required="true" /></li>
+						<li><label for="qty">Quantity: *</label><input type="number" class="rounded" id="qty" name="qty" required aria-required="true" /></li>
+						<li><label for="production">LOE Hours: *</label><input type="number" class="rounded" id="production" name="production" required aria-required="true" /></li>
 						<li><label for="design" id="designLabel">Estimation of Design Hours 1-10: </label><input type="range" min="1" max="10" id="design" name="design" /></li>
 						<li><input type="hidden" value="true" /></li>
 					</ul>

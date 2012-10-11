@@ -42,6 +42,7 @@
 					<li><a href="#addItem">New Job Form</a></li>
 					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
 					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#newsFeed">News Feed ex.</a></li>
 					<li><a href="#about">About</a></li>
 				</ul>
 			</div>
@@ -54,12 +55,12 @@
 			<div data-role="content" data-theme="d">
 				<ul id="browse" data-role="listview" data-inset="true" data-theme="d" data-divider-theme="b" data-filter="true">
 					<li data-role="list-divider">Browse By Job Type:</li>
-					<li><a href="#category-items?category=Banner"><img src="images/Banner-i.png"><h3>Banner</h3></a></li>
-					<li><a href="#category-items?category=Decal"><img src="images/Decal-i.png"><h3>Decal</h3></a></li>
-					<li><a href="#category-items?category=Sign"><img src="images/Sign-i.png"><h3>Sign</h3></a></li>
-					<li><a href="#category-items?category=Display"><img src="images/Display-i.png"><h3>Display</h3></a></li>
-					<li><a href="#category-items?category=Poster"><img src="images/Poster-i.png"><h3>Poster</h3></a></li>
-					<li><a href="#category-items?category=Custom"><img src="images/Custom-i.png"><h3>Custom</h3></a></li>
+					<li id="mainBtn"><a href="#category-items?category=Banner"><img src="images/Banner-i.png"><h3>Banner</h3></a></li>
+					<li id="mainBtn"><a href="#category-items?category=Decal"><img src="images/Decal-i.png"><h3>Decal</h3></a></li>
+					<li id="mainBtn"><a href="#category-items?category=Sign"><img src="images/Sign-i.png"><h3>Sign</h3></a></li>
+					<li id="mainBtn"><a href="#category-items?category=Display"><img src="images/Display-i.png"><h3>Display</h3></a></li>
+					<li id="mainBtn"><a href="#category-items?category=Poster"><img src="images/Poster-i.png"><h3>Poster</h3></a></li>
+					<li id="mainBtn"><a href="#category-items?category=Custom"><img src="images/Custom-i.png"><h3>Custom</h3></a></li>
 				</ul>
 			</div><!-- /content -->
 
@@ -84,6 +85,7 @@
 					<li><a href="#addItem">New Job Form</a></li>
 					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
 					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#newsFeed">News Feed ex.</a></li>
 					<li><a href="#about">About</a></li>
 				</ul>
 			</div>
@@ -97,7 +99,58 @@
 				</div>
 			</div><!-- /footer -->
 		</div><!-- category-items page -->
-
+		<div id="newsFeed" data-role="page" data-theme="d" data-add-back-btn="true">
+  			<div data-role="header" data-theme="b"><h1></h1>
+ 				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" class="ui-btn-right">Menu</a>
+  			</div>
+  			<div data-role="popup" id="popupMenu" data-theme="a" data-history="false">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+					<li data-role="divider" data-theme="a">Navigation</li>
+					<li><a href="#home">Index</a></li>
+					<li><a href="#addItem">New Job Form</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#newsFeed">News Feed ex.</a></li>
+					<li><a href="#about">About</a></li>
+				</ul>
+			</div>
+  			<div data-role="content" ></div>
+  				<ul data-role="listview">
+					<li data-role="list-divider">December Jobs</li>
+					<li><a href="#">
+						<h3>Job#: 5000</h3>
+						<p><strong>Banner Job</strong></p>
+						<p>Quantity: 500</p>
+						<p class="ui-li-aside"><strong>Due Date: </br> 2012-12-13</strong></p>
+					</a></li>
+					<li><a href="#">
+						<h3>Job#: 5015</h3>
+						<p><strong>Sign Job</strong></p>
+						<p>Quantity: 50</p>
+						<p class="ui-li-aside"><strong>Due Date: </br> 2012-12-15</strong></p>
+					</a></li>
+					<li><a href="#">
+						<h3>Job#: 5020</h3>
+						<p><strong>Banner Job</strong></p>
+						<p>Quantity: 5</p>
+						<p class="ui-li-aside"><strong>Due Date: </br> 2012-12-15</strong></p>
+					</a></li>
+					<li><a href="#">
+						<h3>Job#: 5005</h3>
+						<p><strong>Display Job</strong></p>
+						<p>Quantity: 50</p>
+						<p class="ui-li-aside"><strong>Due Date: </br> 2012-12-16</strong></p>
+					</a></li>
+				</ul>
+  			<div data-role="footer" data-theme="a">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+						<li><a href="#category-items?category=displayAll" data-icon="grid">Display JSON</a></li>
+						<li><a href="#addItem" data-icon="plus">New Job</a></li>
+					</ul>
+				</div>
+			</div><!-- /footer -->
+		</div><!-- category-items page -->
 		<div id="addItem" data-role="page" data-theme="d" data-add-back-btn="true">
 
 			<div data-role="header" data-theme="b" data-position="fixed">
@@ -111,6 +164,7 @@
 					<li><a href="#addItem">New Job Form</a></li>
 					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
 					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#newsFeed">News Feed ex.</a></li>
 					<li><a href="#about">About</a></li>
 				</ul>
 			</div>
@@ -227,6 +281,7 @@
 					<li><a href="#addItem">New Job Form</a></li>
 					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
 					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="#newsFeed">News Feed ex.</a></li>
 					<li><a href="#about">About</a></li>
 				</ul>
 			</div>
