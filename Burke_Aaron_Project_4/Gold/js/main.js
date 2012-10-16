@@ -3,7 +3,10 @@ $('#home').on('pageinit', function(){
 	
 });
 
-$('#category-items').on('pageshow', function(){
+$('#json-items').on('pageshow', function(){
+
+});
+$('#storage-items').on('pageshow', function(){
 
 });
 	
@@ -89,8 +92,9 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 		// want to handle URLs that request the data for a specific
 		// category.
 		var u = $.mobile.path.parseUrl( data.toPage ),
-			re1 = /^#json-item/;
+			re1 = /^#json-item/,
 			re2 = /^#storage-item/;
+			console.log("1");
 		if ( u.hash.search(re1) !== -1 ) {
 			// We're being asked to display the items for a specific category.
 			// Call our internal method that builds the content for the category
@@ -108,11 +112,72 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 });
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
+// Function that populates the Browse By categories from localStorage
 function showStorage( urlObj, options ) {
+	var categoryName = urlObj.hash.replace( /.*category=/, "" ),
+		pageSelector = urlObj.hash.replace( /\?.*$/, "" ),
+		// Get the page we are going to dump our content into
+		$page = $( pageSelector ),
 
+		// Get the header for the page.
+		$header = $page.children( ":jqmData(role=header)" ),
+
+		// Get the content area element for the page.
+		$content = $page.children( ":jqmData(role=content)" ),
+		
+		collapseSet = "<div id='jobs' data-role='collapsible-set' data-content-theme='b'>",
+		markup = "";
+
+	if (localStorage.length === 1 && localStorage.getItem("jobNumber")){
+			alert("Local Storage does not contain any jobs. Adding job test data.");
+			autoFillData();
+		};
+
+		for(var i = 0, j = localStorage.length; i < j; i++){
+			if(Number(localStorage.key(i))/1 === Number(localStorage.key(i))){
+				var key = localStorage.key(i);
+				var value = localStorage.getItem(key);
+				var localData = JSON.parse(value);
+				//console.log(localData);
+				markup += "<div data-role='collapsible' data-inset='true'><h3>" + "#: " + localData["jobNum"][1] + "</h3><ul data-role='listview' data-inset='true'>";
+				for(var n in localData){
+					var object = localData[n];
+					//console.log(localData);
+					markup += "<li>" + object[0] + ": " +object[1] + "</li>";
+				};
+				var editLink = "<a id='edit' data-role='button' data-theme='b' data-icon='plus' href='#'>Edit Job</a>";
+				var deleteLink = "<a id='delete' data-role='button' data-theme='b' data-icon='minus' href='#'>Delete Job</a>";
+				markup += "</ul>" + editLink + deleteLink + "</div>";
+			};
+		};
+	markup +="</div></ul>";
+		// Find the h1 element in our header and inject the name of the category into it.
+	$header.find( "h1" ).html( "Local Storage");
+	$content.html( collapseSet + markup );
+		
+		// Pages are lazily enhanced. We call page() on the page
+		// element to make sure it is always enhanced before we
+		// attempt to enhance the listview markup we just injected.
+		// Subsequent calls to page() are ignored since a page/widget
+		// can only be enhanced once.
+		$page.page();
+		// Enhance what we just injected.
+		$content.find( ":jqmData(role=collapsible-set)" ).collapsibleset();
+		$content.find( ":jqmData(role=listview)" ).listview();
+		$content.find( ":jqmData(role=button)" ).button();
+		
+		// We don't want the data-url of the page we just modified
+		// to be the url that shows up in the browser's location field,
+		// so set the dataUrl option to the URL for the category
+		// we just loaded.
+		options.dataUrl = urlObj.href;
+
+		// Now call changePage() and tell it to switch to
+		// the page we just modified.
+		$.mobile.changePage( $page, options );
 
 };	
-// Function that populates the Browse By categories
+// Function that populates the Browse By categories from JSON
 function showCategory( urlObj, options ) {
 	var categoryName = urlObj.hash.replace( /.*category=/, "" ),
 		pageSelector = urlObj.hash.replace( /\?.*$/, "" ),
