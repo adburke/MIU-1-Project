@@ -4,10 +4,10 @@ $('#home').on('pageinit', function(){
 });
 
 $('#json-items').on('pageshow', function(){
-
+	
 });
 $('#storage-items').on('pageshow', function(){
-
+	
 });
 	
 $('#addItem').on('pageshow', function(){
@@ -94,7 +94,6 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 		var u = $.mobile.path.parseUrl( data.toPage ),
 			re1 = /^#json-item/,
 			re2 = /^#storage-item/;
-			console.log("1");
 		if ( u.hash.search(re1) !== -1 ) {
 			// We're being asked to display the items for a specific category.
 			// Call our internal method that builds the content for the category
@@ -123,7 +122,7 @@ function showStorage( urlObj, options ) {
 		$header = $page.children( ":jqmData(role=header)" ),
 
 		// Get the content area element for the page.
-		$content = $page.children( ":jqmData(role=content)" ),
+		$content = $page.children( ":jqmData(role=content)" );
 		
 		collapseSet = "<div id='jobs' data-role='collapsible-set' data-content-theme='b'>",
 		markup = "";
@@ -132,29 +131,38 @@ function showStorage( urlObj, options ) {
 			alert("Local Storage does not contain any jobs. Adding job test data.");
 			autoFillData();
 		};
-
+	
+		keyArray = [];
 		for(var i = 0, j = localStorage.length; i < j; i++){
 			if(Number(localStorage.key(i))/1 === Number(localStorage.key(i))){
 				var key = localStorage.key(i);
+				keyArray.push(key);
 				var value = localStorage.getItem(key);
 				var localData = JSON.parse(value);
 				//console.log(localData);
-				markup += "<div data-role='collapsible' data-inset='true'><h3>" + "#: " + localData["jobNum"][1] + "</h3><ul data-role='listview' data-inset='true'>";
+				markup += "<div id='jobUni' data-role='collapsible' data-inset='true'><h3>" + "#: " + localData["jobNum"][1] + "</h3><ul data-role='listview' data-inset='true'>";
 				for(var n in localData){
 					var object = localData[n];
 					//console.log(localData);
 					markup += "<li>" + object[0] + ": " +object[1] + "</li>";
 				};
-				var editLink = "<a id='edit' data-role='button' data-theme='b' data-icon='plus' href='#'>Edit Job</a>";
-				var deleteLink = "<a id='delete' data-role='button' data-theme='b' data-icon='minus' href='#'>Delete Job</a>";
+				var editLink = "<a class='edit' data-role='button' data-theme='b' data-icon='plus' href='#'>Edit Job</a>";
+				var deleteLink = "<a class='delete' data-role='button' data-theme='b' data-icon='minus' href='#'>Delete Job</a>";
+		
 				markup += "</ul>" + editLink + deleteLink + "</div>";
+				
 			};
 		};
 	markup +="</div></ul>";
 		// Find the h1 element in our header and inject the name of the category into it.
 	$header.find( "h1" ).html( "Local Storage");
-	$content.html( collapseSet + markup );
-		
+	$content.html( collapseSet + markup);
+	var deleteList = document.getElementsByClassName('delete');
+	for (i = 0, j = deleteList.length; i < j; i++){
+		var deleteEvent = deleteList[i];
+		deleteEvent.key = keyArray[i];
+		deleteEvent.addEventListener("click", deleteItem);
+	}	
 		// Pages are lazily enhanced. We call page() on the page
 		// element to make sure it is always enhanced before we
 		// attempt to enhance the listview markup we just injected.
@@ -313,12 +321,13 @@ var storeData = function(key){
 };
 
 var	deleteItem = function (){
-	console.log("test");
 	var ask = confirm("Are you sure you want to delete this job?");
 	if(ask){
+		console.log(this.key);
 		localStorage.removeItem(this.key);
 		alert("Job was deleted!");
-		window.location.reload();
+		$(this).parents().filter('#jobUni').remove();
+		$( "#jobs" ).collapsibleset( "refresh" );
 	} else{
 		alert("Job was NOT deleted.");
 	};
