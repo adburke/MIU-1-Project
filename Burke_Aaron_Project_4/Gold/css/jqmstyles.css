@@ -1,0 +1,51 @@
+
+label.error{
+	display:block;
+	color:#cc0000;
+	margin-top:10px;
+}
+#errorsLink{
+	display:none;
+}
+div.ui-field-contain.ui-body.ui-br {
+	padding:10px;
+}
+#search {
+	padding-bottom: 0;
+	padding-top: 0;
+}
+div#cta.ui-content.ui-body-d {
+	width: 320px;
+	margin: 0 auto;
+	padding:0;
+}
+/*div.ui-content.ui-body-d {
+	padding-top:0;
+}*/
+div.ui-corner-bottom.ui-content.ui-body-d ul {
+	list-style: none;
+}
+div.ui-corner-bottom.ui-content.ui-body-d li {
+	color:#cc0000;
+	margin-bottom:5px;
+}
+div#search.ui-content.ui-body-d {
+	padding:10px 20px;
+	margin-bottom:-15px;
+}
+/*div.ui-btn-inner.ui-li {
+	height:52px;
+}*/
+#mainBtn {
+	height:52px;
+}
+form.ui-listview-filter.ui-bar-c.ui-listview-filter-inset {
+	padding:5px 5px 5px 5px;
+}
+label.ui-input-text span, label.select span{
+	color:#b3b3b3;
+	font-size: 13px;
+}
+.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-thumb {
+	min-height: 0;
+}
