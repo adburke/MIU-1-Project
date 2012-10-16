@@ -46,3 +46,6 @@ label.ui-input-text span, label.select span{
 	color:#b3b3b3;
 	font-size: 13px;
 }
+.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-thumb {
+	min-height: 0;
+}

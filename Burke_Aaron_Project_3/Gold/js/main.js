@@ -1,10 +1,12 @@
 
 $('#home').on('pageinit', function(){
 	
-});	
-$('#category-items').on('pageinit', function(){
+});
 
-});		
+$('#category-items').on('pageshow', function(){
+
+});
+	
 $('#addItem').on('pageshow', function(){
 	// Enables validator debug messages. Used to test the rules: I created.
 	// jQuery.validator.setDefaults({
@@ -22,12 +24,12 @@ $('#addItem').on('pageshow', function(){
 		errorsLink = $("#errorsLink");
 	var validator = myForm.validate({
 		rules: {
-			"select-choice-min" : {
+			"jobTypeList" : {
 				required: true
 			},
 			custom: {
 				required: function(element) {
-					return ($("#select-choice-min").val() === "Custom");
+					return ($("#jobTypeList").val() === "Custom");
 				}
 			},
 			qty: {
@@ -47,7 +49,6 @@ $('#addItem').on('pageshow', function(){
 
 		invalidHandler: function(form, validator) {
 			errorsLink.click();
-
 			var html = "";
 			for(var key in validator.submitted){
 				var label = $('label[for^="'+ key +'"]').not("[generated]");
@@ -88,8 +89,9 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 		// want to handle URLs that request the data for a specific
 		// category.
 		var u = $.mobile.path.parseUrl( data.toPage ),
-			re = /^#category-item/;
-		if ( u.hash.search(re) !== -1 ) {
+			re1 = /^#json-item/;
+			re2 = /^#storage-item/;
+		if ( u.hash.search(re1) !== -1 ) {
 			// We're being asked to display the items for a specific category.
 			// Call our internal method that builds the content for the category
 			// on the fly based on our in-memory category data structure.
@@ -98,13 +100,19 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 			// Make sure to tell changePage() we've handled this call so it doesn't
 			// have to do anything.
 			e.preventDefault();
-		};
-	};
+		} else if ( u.hash.search(re2) !== -1 ){
+			showStorage( u, data.options );
+			e.preventDefault();
+		}
+	}
 });
 
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
+function showStorage( urlObj, options ) {
 
-// Function that populates the Browse By categories and localStorage
+
+};	
+// Function that populates the Browse By categories
 function showCategory( urlObj, options ) {
 	var categoryName = urlObj.hash.replace( /.*category=/, "" ),
 		pageSelector = urlObj.hash.replace( /\?.*$/, "" ),
@@ -120,7 +128,7 @@ function showCategory( urlObj, options ) {
 		collapseSet = "<div id='jobs' data-role='collapsible-set' data-content-theme='b'>",
 		markup = "";
 		
-	if (categoryName != "displayAll" && categoryName != "displayStorage"){
+	if (categoryName != "displayAll"){
 		// For each category selected
 		for(var n in json){
 			if ( categoryName === json[n].jobType[1] ) {
@@ -135,7 +143,7 @@ function showCategory( urlObj, options ) {
 		markup +="</div></ul>";
 		// Find the h1 element in our header and inject the name of the category into it.
 		$header.find( "h1" ).html( categoryName);
-	}  else if ( categoryName === "displayAll"){
+	}  else {
 		console.log("displayAll");
 		for(var n in json){
 			var object = json[n];
@@ -148,33 +156,7 @@ function showCategory( urlObj, options ) {
 		markup +="</div></ul>";
 		// Find the h1 element in our header and inject the name of the category into it.
 		$header.find( "h1" ).html( "JSON");
-	} else if ( categoryName === "displayStorage"){
-		if (localStorage.length === 1 && localStorage.getItem("jobNumber")){
-			alert("Local Storage does not contain any jobs. Adding job test data.");
-			autoFillData();
-		};
-		
-		for(var i = 0, j = localStorage.length; i < j; i++){
-			if(Number(localStorage.key(i))/1 === Number(localStorage.key(i))){
-				var key = localStorage.key(i);
-				var value = localStorage.getItem(key);
-				var localData = JSON.parse(value);
-				//console.log(localData);
-				markup += "<div data-role='collapsible' data-inset='true'><h3>" + "#: " + localData["jobNum"][1] + "</h3><ul data-role='listview' data-inset='true'>";
-				for(var n in localData){
-					var object = localData[n];
-					//console.log(localData);
-					markup += "<li>" + object[0] + ": " +object[1] + "</li>";
-				};
-				var editLink = "<a id='edit' data-role='button' data-theme='b' data-icon='plus' href='#'>Edit Job</a>";
-				var deleteLink = "<a id='delete' data-role='button' data-theme='b' data-icon='minus' href='#'>Delete Job</a>";
-				markup += "</ul>" + editLink + deleteLink + "</div>";
-			};
-		};
-		markup +="</div></ul>";
-		// Find the h1 element in our header and inject the name of the category into it.
-		$header.find( "h1" ).html( "Local Storage");
-	};
+	} 
 
 		// Inject the category items markup into the content element.
 		$content.html( collapseSet + markup );
