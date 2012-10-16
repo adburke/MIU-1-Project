@@ -77,7 +77,9 @@ $('#addItem').on('pageshow', function(){
 	});
 	
 	//any other code needed for addItem page goes here
-	jobCount();
+
+	jobCount($("#jobnum").val());
+
 	$("#clearData").click(function() {
 		clearLocal();
 	});
@@ -162,7 +164,13 @@ function showStorage( urlObj, options ) {
 		var deleteEvent = deleteList[i];
 		deleteEvent.key = keyArray[i];
 		deleteEvent.addEventListener("click", deleteItem);
-	}	
+	}
+	var editList = document.getElementsByClassName('edit');
+	for (i = 0, j = editList.length; i < j; i++){
+		var editEvent = editList[i];
+		editEvent.key = keyArray[i];
+		editEvent.addEventListener("click", editItem);
+	}
 		// Pages are lazily enhanced. We call page() on the page
 		// element to make sure it is always enhanced before we
 		// attempt to enhance the listview markup we just injected.
@@ -267,8 +275,13 @@ var getData = function(){
 	
 };
 
-function jobCount(){
-	if (localStorage.getItem("jobNumber")){
+var jobCount = function (value){
+	console.log("ran jobCount");
+	console.log(value);
+	console.log(localStorage.getItem("jobNumber"));
+	if (localStorage.getItem("jobNumber") != value && value != undefined && value != ""){
+		
+	} else if (localStorage.getItem("jobNumber")) {
 		jobNumCount = localStorage["jobNumber"];
 		$("#jobnum").val(Number(jobNumCount));
 	} else {
@@ -305,7 +318,7 @@ var storeData = function(key){
 		jobFormData.oDate		= ["Order Date", $("#orderdate").val()];
 		jobFormData.needDate	= ["Need Date", $("#needbydate").val()];
 		jobFormData.rushOrder	= ["Rush Order", $('input:radio[name=rush]:checked').val()];
-		jobFormData.jobType		= ["Job Type", $("#select.jobTypeList").val()];
+		jobFormData.jobType		= ["Job Type", $("#jobTypeList").val()];
 		jobFormData.customInfo	= ["Custom Info", $("#custom").val()];
 		jobFormData.quantity	= ["Quantity", $("#qty").val()];
 		jobFormData.prodHours	= ["Production Hours", $("#production").val()];
@@ -333,6 +346,32 @@ var	deleteItem = function (){
 	};
 };
 
+var editItem = function (){
+	// Grab the data from our item from local storage
+	var value = localStorage.getItem(this.key);
+	var jobFormData = JSON.parse(value);
+	console.log(value);
+	$.mobile.changePage( "#addItem");
+	$("#jobnum").val(jobFormData.jobNum[1]);
+	$("#company").val(jobFormData.company[1]);
+	$("#address").val(jobFormData.address[1]);
+	$("#city").val(jobFormData.city[1]);
+	$("#state").val(jobFormData.state[1]);
+	$("#zipcode").val(jobFormData.zipcode[1]);
+	$("#phone").val(jobFormData.phone[1]);
+	$("#email").val(jobFormData.email[1]);
+	$("#orderdate").val(jobFormData.oDate[1]);
+	$("#needbydate").val(jobFormData.needDate[1]);
+	$('input:radio[name=rush]:checked').val(jobFormData.rushOrder[1]);
+	$("#jobTypeList").val(jobFormData.jobType[1]);
+	$("#custom").val(jobFormData.customInfo[1]);
+	$("#qty").val(jobFormData.quantity[1]);
+	$("#production").val(jobFormData.prodHours[1]);
+	$("#design").val(jobFormData.designEff[1]);
+	console.log("ran editItem");
+	
+	
+};
 					
 var clearLocal = function(){
 	localStorage.clear();
