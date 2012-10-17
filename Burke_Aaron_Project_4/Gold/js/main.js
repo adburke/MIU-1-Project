@@ -65,7 +65,7 @@ $('#addItem').on('pageshow', function(){
 		submitHandler: function(form) {
 			// var data = myForm.serializeArray();
 			// console.log(data);
-			storeData();
+			storeData($("#jobnum").val());
 			form.reset();
 			jobCount();
 		}
@@ -73,7 +73,7 @@ $('#addItem').on('pageshow', function(){
 	// Have reset button clear red validation messages from form created var validator
 	// above to use for this
 	$(".reset").click(function() {
-		//validator.resetForm();
+		window.location.reload();
 	});
 	
 	//any other code needed for addItem page goes here
@@ -82,6 +82,7 @@ $('#addItem').on('pageshow', function(){
 
 	$("#clearData").click(function() {
 		clearLocal();
+		$(".reset").click();
 	});
 });
 
@@ -276,25 +277,31 @@ var getData = function(){
 };
 
 var jobCount = function (value){
-	console.log("ran jobCount");
+	console.log("Start jobCount");
+	console.log("jobCount value:");
 	console.log(value);
 	console.log(localStorage.getItem("jobNumber"));
-	if (localStorage.getItem("jobNumber") != value && value != undefined && value != ""){
-		
+	if (localStorage.getItem("jobNumber") !== value && value !== "" && value !== undefined ){
+		console.log("First if jobCount");
 	} else if (localStorage.getItem("jobNumber")) {
 		jobNumCount = localStorage["jobNumber"];
 		$("#jobnum").val(Number(jobNumCount));
+		console.log("Second if jobCount");
 	} else {
 		jobNumCount = 1000;
 		localStorage.setItem("jobNumber", jobNumCount.toString());
 		$("#jobnum").val(jobNumCount);
+		console.log("Third if jobCount");
 	};
-	//console.log(jobNumCount);
+	console.log("End jobCount");
 };
 
 var storeData = function(key){
 	// Random key number for each job object
 	// Check to see if we are editing an existing item or it is a new item.
+	console.log("Start storeData");
+	console.log("storeData key:");
+	console.log(key);
 	if (!key || key === undefined){
 		var id = jobNumCount;
 		var num = Number($("#jobnum").val())+1;
@@ -322,7 +329,7 @@ var storeData = function(key){
 		jobFormData.customInfo	= ["Custom Info", $("#custom").val()];
 		jobFormData.quantity	= ["Quantity", $("#qty").val()];
 		jobFormData.prodHours	= ["Production Hours", $("#production").val()];
-		jobFormData.designEff	= ["Design Effort", $("#design").val()];
+		jobFormData.designEff	= ["Design Effort", $("#slider-fill").val()];
 
 	localStorage.setItem(id, JSON.stringify(jobFormData));
 	if (!key || key === undefined){
@@ -331,6 +338,7 @@ var storeData = function(key){
 		alert("Job #: " + key + " Saved");
 	};
 	jobCount();	
+	console.log("End storeData");
 };
 
 var	deleteItem = function (){
@@ -367,7 +375,8 @@ var editItem = function (){
 	$("#custom").val(jobFormData.customInfo[1]);
 	$("#qty").val(jobFormData.quantity[1]);
 	$("#production").val(jobFormData.prodHours[1]);
-	$("#design").val(jobFormData.designEff[1]);
+	$("#slider-fill").val(jobFormData.designEff[1]);
+	$('select').selectmenu('refresh', true);
 	console.log("ran editItem");
 	
 	
