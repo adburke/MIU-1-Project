@@ -3,10 +3,10 @@ $('#home').on('pageinit', function(){
 	
 });
 
-$('#json-items').on('pageshow', function(){
+$('#json-items').on('pageinit', function(){
 	
 });
-$('#storage-items').on('pageshow', function(){
+$('#storage-items').on('pageinit', function(){
 	
 });
 	
@@ -16,10 +16,28 @@ $('#addItem').on('pageshow', function(){
 	// 	debug: true,
 	// 	success: "valid"
 	// });;
+	
+	// Injects current date as default for order date on form
 	var myDate = new Date();
     var month = myDate.getMonth() + 1;
     var dateVal = myDate.getFullYear() + '-' + month + '-' + myDate.getDate();
     $("#orderdate").val(dateVal);
+    // Hides or shows custom textarea on select
+    if ($("#custom").val()){
+    	$('#customContain').show();
+    } else {
+    	$('#customContain').hide();
+    }
+    $('#jobTypeList').change(function() {
+		console.log("fired");
+		if ($("#jobTypeList").val() === "Custom") {
+			$('#customContain').show();
+
+		} else {
+			$('#customContain').hide();
+
+		}
+	});
 
 
 	var jobNumCount;

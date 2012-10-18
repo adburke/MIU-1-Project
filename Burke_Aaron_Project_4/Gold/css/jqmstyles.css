@@ -15,14 +15,15 @@ div.ui-field-contain.ui-body.ui-br {
 	padding-top: 0;
 }
 div#cta {
-	width: 320px;
+	width:320px;
 	margin: 0 auto;
 	padding:0;
 
 }
-/*div.ui-content.ui-body-d {
-	padding-top:0;
-}*/
+div.ui-content.ui-body-d img {
+	
+	width:300px;
+}
 div.ui-corner-bottom.ui-content.ui-body-d ul {
 	list-style: none;
 }
@@ -60,4 +61,10 @@ background: -ms-linear-gradient(top,  rgba(254,255,255,1) 0%,rgba(221,241,249,1)
 background: linear-gradient(to bottom,  rgba(254,255,255,1) 0%,rgba(221,241,249,1) 42%,rgba(82,129,170,1) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#5281aa',GradientType=0 ); /* IE6-9 */
 
+}
+div#cityHolder.ui-block-a, div#stateHolder.ui-block-b, div#zipHolder.ui-block-a, div#phoneHolder.ui-block-b {
+	width:130px;
+}
+div#cityHolder.ui-block-a, div#zipHolder.ui-block-a {
+	margin-right:10px;
 }

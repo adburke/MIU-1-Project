@@ -208,16 +208,24 @@
 							<label for="address">Address: <span>required</span></label><input type="text"  id="address" name="address" class="required" required aria-required="true" placeholder="123 Test Blvd."/>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="city">City: <span>required</span></label><input type="text"  id="city" name="city" class="required" required aria-required="true" placeholder="Huntsville"/>
+							<div class='ui-grid-a'>
+								<div class='ui-block-a' id="cityHolder">
+									<label for="city">City: <span>required</span></label><input type="text"  id="city" name="city" class="required" required aria-required="true" placeholder="Huntsville"/>
+								</div>
+								<div class='ui-block-b' id="stateHolder">
+									<label for="state">State: <span>required</span></label><input type="text"  id="state" name="state" class="required" required aria-required="true" placeholder="Alabama"/>
+								</div>
+							</div>
 						</div>
 						<div data-role="fieldcontain" >
-							<label for="state">State: <span>required</span></label><input type="text"  id="state" name="state" class="required" required aria-required="true" placeholder="Alabama"/>
-						</div>
-						<div data-role="fieldcontain" >
-							<label for="zipcode">Zip Code: <span>required</span></label><input type="text"  id="zipcode" name="zipcode" class="required digits" required aria-required="true" placeholder="#####"/>
-						</div>
-						<div data-role="fieldcontain" >
-							<label for="phone">Phone: <span>required</span></label><input type="tel"  id="phone" name="phone" class="required phoneUS" required aria-required="true" placeholder="###-###-####"/>
+							<div class='ui-grid-a'>
+								<div class='ui-block-a' id="zipHolder">
+									<label for="zipcode">Zip Code: <span>required</span></label><input type="text"  id="zipcode" name="zipcode" class="required digits" required aria-required="true" placeholder="#####"/>
+								</div>
+								<div class='ui-block-b' id="phoneHolder">
+									<label for="phone">Phone: <span>required</span></label><input type="tel"  id="phone" name="phone" class="required phoneUS" required aria-required="true" placeholder="###-###-####"/>
+								</div>
+							</div>
 						</div>
 						<div data-role="fieldcontain" >
 							<label for="email">Email: <span>required</span></label><input type="email"  id="email" name="email" class="required email" required aria-required="true" placeholder="example@abc.com"/>
@@ -229,7 +237,7 @@
 							<label for="needbydate">Due Date: <span>required</span></label><input type="date"  id="needbydate" name="needbydate" class="required date" required aria-required="true" placeholder="yyyy-mm-dd"/>
 						</div>
 						<div data-role="fieldcontain" >
-							<fieldset data-role="controlgroup" data-type="horizontal" >
+							<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
 								<div role ="heading">Rush Order?</div>
 									<label for="yes">Yes</label><input type="radio" value="Yes" id="yes" name="rush" class="radio" />
 									<label for="no">No</label><input type="radio" value="No" id="no" name="rush" class="radio" checked="checked"/>
@@ -243,7 +251,7 @@
 					<fieldset>
 						<div data-role="fieldcontain" >
 							<label for="select-choice-min" class="select">Job Type: <span>required</span></label>
-							<select name="select-choice-min" id="jobTypeList" data-mini="true" data-native-menu="false" >
+							<select name="select-choice-min" id="jobTypeList" data-mini="true"  >
 								<option value="">--Job Types--</option>
 								<option value="Banner">Banner</option>
 								<option value="Decal">Decal</option>
@@ -253,7 +261,7 @@
 								<option value="Custom">Custom</option>
 							</select>
 						</div>
-						<div data-role="fieldcontain" >
+						<div data-role="fieldcontain" id="customContain">
 							<label for="custom">Custom Info:</label><textarea id="custom" name="custom" class="custom"></textarea>
 						</div>
 						<div data-role="fieldcontain" >
@@ -268,7 +276,7 @@
 					</fieldset>
 				</ul>
 				<div class='ui-grid-a'>
-					<div class='ui-block-b'><input type="submit" class="submit" value="Save Job" /></div>
+					<div class='ui-block-a'><input type="submit" class="submit" value="Save Job" /></div>
 					<div class='ui-block-b'><input type="reset" class="reset" value="Reset Form" data-theme="b"/></div>
 				</div>
 				<a href="#formErrors" id="errorsLink" data-rel="dialog" data-transition="pop">Open Errors</a>
