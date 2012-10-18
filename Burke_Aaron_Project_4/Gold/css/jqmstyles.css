@@ -24,6 +24,12 @@ div.ui-content.ui-body-d img {
 	
 	width:300px;
 }
+div#logoAbout {
+	width:200px;
+	margin: 0 auto;
+	padding:0;
+
+}
 div.ui-corner-bottom.ui-content.ui-body-d ul {
 	list-style: none;
 }
