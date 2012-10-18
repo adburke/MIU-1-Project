@@ -149,8 +149,8 @@ function showStorage( urlObj, options ) {
 					//console.log(localData);
 					markup += "<li>" + object[0] + ": " +object[1] + "</li>";
 				};
-				var editLink = "<a class='edit' data-role='button' data-theme='b' data-icon='plus' href='#'>Edit Job</a>";
-				var deleteLink = "<a class='delete' data-role='button' data-theme='b' data-icon='minus' href='#'>Delete Job</a>";
+				var editLink = "<div class='ui-grid-a'><div class='ui-block-a'><a class='edit' data-role='button' data-theme='b' data-icon='plus' href='#'>Edit Job</a></div>";
+				var deleteLink = "<div class='ui-block-b'><a class='delete' data-role='button' data-theme='b' data-icon='minus' href='#'>Delete Job</a></div></div>";
 		
 				markup += "</ul>" + editLink + deleteLink + "</div>";
 				

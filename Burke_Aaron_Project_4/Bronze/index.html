@@ -22,6 +22,7 @@
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="css/jqmstyles.css">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="css/themes/bronze-ugly.min.css" />
 
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
@@ -29,27 +30,27 @@
 
 </head>
 	<body>
-		<div data-role="page" id="home" data-theme="d">
+		<div data-role="page" id="home" >
 
-			<div data-role="header" data-theme="b" data-position="fixed">
+			<div data-role="header"  data-position="fixed">
 				<h1>JOB MANAGER</h1>
 				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true">Menu</a>	
 			</div><!-- /header -->
-			<div data-role="popup" id="popupMenu" data-theme="a" data-history="false">
-				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
-					<li data-role="divider" data-theme="a">Navigation</li>
+			<div data-role="popup" id="popupMenu"  data-history="false">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" >
+					<li data-role="divider" >Navigation</li>
 					<li><a href="#home">Index</a></li>
 					<li><a href="additem.html" data-ajax="false">New Job Form</a></li>
-					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
-					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_4/Gold/">GH-Pages Gold</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_4/Bronze/">GH-Pages Bronze</a></li>
 					<li><a href="#about">About</a></li>
 				</ul>
 			</div>
-			<div data-role="content" data-theme="d" id="cta">
+			<div data-role="content"  id="cta">
 				<a href="additem.html" data-ajax="false"><img src="images/cta.png" alt="cta"></a>
 			</div>
-			<div data-role="content" data-theme="d">	
-				<ul data-role="listview"  data-theme="d" data-divider-theme="b">
+			<div data-role="content" >	
+				<ul data-role="listview"   >
 					<li data-role="list-divider">Browse By Job Type:</li>
 					<div class="ui-grid-a">
 						<div class="ui-block-a"><a href="#category-items"><img src="images/Banner-g.png"></a></div>
@@ -61,7 +62,7 @@
 					</div><!-- /grid-a -->
 				</ul>
 			</div><!-- /content -->
-			<div data-role="footer" data-theme="a">
+			<div data-role="footer" >
 				<div data-role="navbar" data-iconpos="top">
 					<ul>
 						<li><a href="#category-items" data-icon="grid">Display Jobs</a></li>
@@ -70,22 +71,22 @@
 				</div>
 			</div><!-- /footer -->
 		</div><!-- /page -->
-		<div id="category-items" data-role="page" data-theme="d" data-add-back-btn="true">
-  			<div data-role="header" data-theme="b" ><h1></h1>
+		<div id="category-items" data-role="page"  data-add-back-btn="true">
+  			<div data-role="header"  ><h1></h1>
  				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" class="ui-btn-right">Menu</a>
   			</div>
-  			<div data-role="popup" id="popupMenu" data-theme="a" data-history="false">
-				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
-					<li data-role="divider" data-theme="a">Navigation</li>
+  			<div data-role="popup" id="popupMenu"  data-history="false">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" >
+					<li data-role="divider" >Navigation</li>
 					<li><a href="#home">Index</a></li>
 					<li><a href="additem.html" data-ajax="false">New Job Form</a></li>
-					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
-					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_4/Gold/">GH-Pages Gold</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_4/Bronze/">GH-Pages Bronze</a></li>
 					<li><a href="#about">About</a></li>
 				</ul>
 			</div>
   			<div data-role="content">
-  				<ul id="browse" data-role="listview" data-theme="d" data-divider-theme="b" data-filter="true">
+  				<ul id="browse" data-role="listview"   data-filter="true">
 					<li data-role="list-divider">List</li>
 					<li><h3>Banner</h3></li>
 					<li><h3>Decal</h3></li>
@@ -95,7 +96,7 @@
 					<li><h3>Custom</h3></li>
 				</ul>
 			</div>	
-  			<div data-role="footer" data-theme="a">
+  			<div data-role="footer" >
 				<div data-role="navbar" data-iconpos="top">
 					<ul>
 						<li><a href="#category-items" data-icon="grid">Display Jobs</a></li>
@@ -105,17 +106,17 @@
 			</div><!-- /footer -->
 		 </div><!-- category-items page --> 
 		
-		<div id="about" data-role="page" data-theme="d" data-add-back-btn="true">
-  			<div data-role="header" data-theme="b" ><h1></h1>
+		<div id="about" data-role="page"  data-add-back-btn="true">
+  			<div data-role="header"  ><h1></h1>
  				<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" class="ui-btn-right">Menu</a>
   			</div>
-  			<div data-role="popup" id="popupMenu" data-theme="a" data-history="false">
-				<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
-					<li data-role="divider" data-theme="a">Navigation</li>
+  			<div data-role="popup" id="popupMenu"  data-history="false">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;" >
+					<li data-role="divider" >Navigation</li>
 					<li><a href="#home">Index</a></li>
 					<li><a href="#addItem">New Job Form</a></li>
-					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Gold/">GH-Pages Gold</a></li>
-					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_2/Bronze/">GH-Pages Bronze</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_4/Gold/">GH-Pages Gold</a></li>
+					<li><a href="http://adburke.github.com/MIU-1-Project/Burke_Aaron_Project_4/Bronze/">GH-Pages Bronze</a></li>
 					<li><a href="#about">About</a></li>
 				</ul>
 			</div>
@@ -127,7 +128,7 @@
 					<div class="ui-block-b"><h1>WHY?</h1>Hey! Wait! What about where?</div>
 				</div><!-- /grid-b -->
   			</div>
-  			<div data-role="footer" data-theme="a">
+  			<div data-role="footer" >
 				<div data-role="navbar" data-iconpos="top">
 					<ul>
 						<li><a href="#category-items?category=displayAll" data-icon="grid">Display Jobs</a></li>
