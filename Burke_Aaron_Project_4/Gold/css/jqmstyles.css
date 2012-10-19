@@ -17,7 +17,7 @@ div.ui-field-contain.ui-body.ui-br {
 div#cta {
 	width:320px;
 	margin: 0 auto;
-	padding:0;
+	padding-top:5px;
 
 }
 div.ui-content.ui-body-d img {
@@ -73,4 +73,9 @@ div#cityHolder.ui-block-a, div#stateHolder.ui-block-b, div#zipHolder.ui-block-a,
 }
 div#cityHolder.ui-block-a, div#zipHolder.ui-block-a {
 	margin-right:10px;
+}
+div.ui-header.ui-bar-b img {
+	display:block;
+	margin: 0 auto;
+	padding:2px;
 }
